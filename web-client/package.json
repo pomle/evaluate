@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "cross-env": "^5.2.0",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "nuxt": "^2.0.0",
     "prismjs": "^1.15.0"
   },
