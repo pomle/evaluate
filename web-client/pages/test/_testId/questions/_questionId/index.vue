@@ -40,10 +40,16 @@ export default {
         v-for="(option, index) in options"
         :key="index"
         class="options">
-        <pre class="language-javascript">
-          <code v-html="option.html"/>
-        </pre>
+        <pre class="language-javascript"><code v-html="option.html"/></pre>
       </div>
     </div>
   </div>
 </template>
+
+<style lang="less">
+.question {
+  .options {
+    display: flex;
+  }
+}
+</style>
