@@ -1,10 +1,10 @@
 describe('Parallell promises', () => {
   const fakeAPI = {
     getFoo() {
-      return new Promise(resolve => setTimeout(resolve, 1000, 'foo-text'));
+      return Promise.resolve('foo-text');
     },
     getBar() {
-      return new Promise(resolve => setTimeout(resolve, 1000, 'bar-text'));
+      return Promise.resolve('bar-text');
     },
   };
 
