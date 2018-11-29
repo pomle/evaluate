@@ -1,0 +1,8 @@
+{
+  "tests": [
+    "const-vs-let",
+    "memoization",
+    "parallell-await",
+    "unique"
+  ]
+}
