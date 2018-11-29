@@ -1,22 +1,40 @@
 version: 2
 jobs:
-  test:
+  test-challenges:
     docker:
       - image: circleci/node:8
     steps:
       - checkout
       - run:
           name: Install
+          working_directory: challenges/javascript
           command: yarn install
       - run:
           name: Lint
+          working_directory: challenges/javascript
           command: yarn lint
       - run:
           name: Test
+          working_directory: challenges/javascript
           command: yarn test --verbose
+
+  test-web-client:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run:
+          name: Install
+          working_directory: web-client
+          command: yarn install
+      - run:
+          name: Lint
+          working_directory: web-client
+          command: yarn lint
 
 workflows:
   version: 2
   test-flow:
     jobs:
-      - test
+      - test-challenges
+      - test-web-client
