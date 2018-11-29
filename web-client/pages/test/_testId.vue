@@ -2,7 +2,7 @@
 export default {
   computed: {
     testId() {
-      return this.$route.params.id
+      return this.$route.params.testId
     },
 
     test() {
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-  <nuxt-child 
-    v-if="test" 
+  <nuxt-child
+    v-if="test"
     :test="test"/>
 </template>

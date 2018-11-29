@@ -10,7 +10,5 @@ export default {
 </script>
 
 <template>
-  <div class="test">
-    {{ test.data.tests[0].good.type }}
-  </div>
+  <nuxt-child :test="test"/>
 </template>
