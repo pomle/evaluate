@@ -36,7 +36,7 @@ export default {
     },
 
     progress() {
-      return this.questionIndex / this.test.data.questions.length
+      return (this.questionIndex + 1) / (this.test.data.questions.length + 1);
     }
   },
 
