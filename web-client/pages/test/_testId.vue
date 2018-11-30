@@ -1,5 +1,7 @@
 <script>
 export default {
+  layout: 'test',
+
   computed: {
     testId() {
       return this.$route.params.testId

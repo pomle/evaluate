@@ -65,20 +65,20 @@ export default {
 
     next() {
       if (this.nextQuestionId) {
-        this.goToQuestion(this.nextQuestionId);
+        this.goToQuestion(this.nextQuestionId)
       } else {
         const testId = this.test.id
         this.$router.push({
           name: 'test-testId-done',
           params: {
-            testId,
+            testId
           }
-        });
+        })
       }
     },
 
     prev() {
-      this.goToQuestion(this.prevQuestionId);
+      this.goToQuestion(this.prevQuestionId)
     }
   }
 }
@@ -105,31 +105,12 @@ export default {
 
 <style lang="less">
 .question-page {
-  display: flex;
-  flex-flow: column;
-  margin: auto;
-  width: 1000px;
-
   .question {
     height: 500px;
     margin: 20px -20px;
     .options {
       width: 100%;
     }
-  }
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-
-  .prev,
-  .next {
-    margin: 1em;
-  }
-
-  button {
-    font-size: 20px;
   }
 }
 </style>
