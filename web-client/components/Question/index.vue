@@ -26,9 +26,8 @@ export default {
 
   methods: {
     setAnswer(answerId) {
-      const { testId, questionId } = this.$route.params
-      this.$store.commit('test/setAnswer', {
-        testId,
+      const { questionId } = this.$route.params
+      this.$emit('selected', {
         questionId,
         answerId
       })

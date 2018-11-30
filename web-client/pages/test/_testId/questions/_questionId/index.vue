@@ -89,6 +89,11 @@ export default {
           }
         })
       }
+    },
+
+    setAnswer({ questionId, answerId }) {
+      const testId = this.test.id
+      this.$store.commit('test/setAnswer', { testId, questionId, answerId })
     }
   }
 }
@@ -98,7 +103,9 @@ export default {
   <div class="question-page">
     <Progress :value="progress"/>
 
-    <Question :question="question"/>
+    <Question
+      :question="question"
+      @selected="setAnswer"/>
 
     <nav>
       <div class="prev">
