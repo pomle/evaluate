@@ -6,6 +6,7 @@
 
 <style lang="less">
 .test-layout {
+  color: #fff;
   display: flex;
   flex-flow: column;
   margin: auto;
@@ -14,6 +15,7 @@
   nav {
     display: flex;
     justify-content: space-between;
+    margin: -1em;
 
     .prev,
     .next {

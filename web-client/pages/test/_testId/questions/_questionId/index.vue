@@ -78,7 +78,17 @@ export default {
     },
 
     prev() {
-      this.goToQuestion(this.prevQuestionId)
+      if (this.prevQuestionId) {
+        this.goToQuestion(this.prevQuestionId)
+      } else {
+        const testId = this.test.id
+        this.$router.push({
+          name: 'test-testId',
+          params: {
+            testId
+          }
+        })
+      }
     }
   }
 }
@@ -93,7 +103,6 @@ export default {
     <nav>
       <div class="prev">
         <button
-          :class="{disabled: !prevQuestionId}"
           @click.prevent="prev">Prev</button>
       </div>
       <div class="next">
