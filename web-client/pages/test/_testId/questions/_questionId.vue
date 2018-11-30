@@ -9,7 +9,7 @@ export default {
     question() {
       const { questionId } = this.$route.params
       return this.test.data.questions.find(
-        (question, index) => index == questionId
+        question => question.id == questionId
       )
     }
   }

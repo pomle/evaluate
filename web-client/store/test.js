@@ -15,7 +15,7 @@ export const mutations = {
     const question = test.data.questions.find(
       question => question.id === questionId
     )
-    question.answer = answerId
+    question.answer.id = answerId
   }
 }
 
@@ -25,6 +25,13 @@ export const actions = {
     const raw = await fetch(testURL).then(response => response.text())
     const decoded = atob(raw)
     const data = JSON.parse(decoded)
+
+    for (const question of data.questions) {
+      question.answer = {
+        id: null
+      }
+    }
+
     commit('addTest', {
       test: {
         id,
