@@ -70,7 +70,7 @@ export default {
       padding: 5px;
 
       &.selected {
-        background-color: green;
+        background-color: #7fea7f;
       }
 
       pre {
