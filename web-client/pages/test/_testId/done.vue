@@ -51,7 +51,7 @@ export default {
     <main class="confirm">
       <h1>Ready to submit?</h1>
 
-      <button @click="submit">Submit</button>
+      <button class="primary" @click="submit">Submit</button>
     </main>
 
     <nav>
