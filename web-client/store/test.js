@@ -3,8 +3,11 @@ const URL_ROOT = 'https://raw.githubusercontent.com/pomle/evaluate';
 function fetchEncoded(url) {
   return fetch(url)
     .then(response => response.text())
-    .then(raw => atob(raw))
-    .then(decoded => JSON.parse(decoded));
+    .then(decode);
+}
+
+function decode(raw) {
+  return JSON.parse(atob(raw));
 }
 
 export const state = () => ({
