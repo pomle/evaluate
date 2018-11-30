@@ -1,4 +1,11 @@
-const URL_ROOT = 'https://raw.githubusercontent.com/pomle/evaluate/tests/'
+const URL_ROOT = 'https://raw.githubusercontent.com/pomle/evaluate'
+
+function fetchEncoded(url) {
+  return fetch(url)
+    .then(response => response.text())
+    .then(raw => atob(raw))
+    .then(decoded => JSON.parse(decoded))
+}
 
 export const state = () => ({
   tests: []
@@ -21,10 +28,8 @@ export const mutations = {
 
 export const actions = {
   async loadTest({ commit }, { id }) {
-    const testURL = URL_ROOT + id
-    const raw = await fetch(testURL).then(response => response.text())
-    const decoded = atob(raw)
-    const data = JSON.parse(decoded)
+    const testURL = [URL_ROOT, 'tests', id].join('/')
+    const data = await fetchEncoded(testURL)
 
     for (const question of data.questions) {
       question.answer = {
