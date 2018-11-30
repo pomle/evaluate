@@ -9,7 +9,7 @@ export default {
   },
 
   props: {
-    test: {
+    session: {
       type: Object,
       required: true
     }
@@ -17,29 +17,30 @@ export default {
 
   methods: {
     prev() {
-      const questions = this.test.data.questions;
+      const questions = this.session.test.questions;
       const lastQuestion = questions[questions.length - 1];
       this.goToQuestion(lastQuestion.id);
     },
 
     goToQuestion(questionId) {
-      const testId = this.test.id;
+      const { sessionId } = this.session;
       if (!questionId) {
         return;
       }
 
       this.$router.push({
-        name: 'test-testId-questions-questionId',
+        name: 'session-sessionId-questions-questionId',
         params: {
-          testId,
+          sessionId,
           questionId
         }
       });
     },
 
     submit() {
-      this.$store.dispatch('test/saveResult', {
-        testId: this.test.id
+      const { sessionId } = this.session;
+      this.$store.dispatch('session/saveResult', {
+        sessionId
       });
     }
   }
@@ -51,10 +52,11 @@ export default {
     <Progress :value="1"/>
 
     <main class="confirm">
-      <h1>Ready to submit?</h1>
+      <h1>Thank you for taking the test!</h1>
 
-      <button 
-        class="primary" 
+      <button
+        v-if="session.resultId"
+        class="primary"
         @click="submit">Submit</button>
     </main>
 

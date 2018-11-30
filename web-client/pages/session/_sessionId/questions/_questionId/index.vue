@@ -9,7 +9,7 @@ export default {
   },
 
   props: {
-    test: {
+    session: {
       type: Object,
       required: true
     },
@@ -22,7 +22,7 @@ export default {
 
   head() {
     const current = this.questionIndex + 1;
-    const total = this.test.data.questions.length;
+    const total = this.session.test.questions.length;
 
     return {
       title: `${current} / ${total}`
@@ -31,7 +31,7 @@ export default {
 
   computed: {
     questionIndex() {
-      return this.test.data.questions.findIndex(
+      return this.session.test.questions.findIndex(
         question => question.id === this.question.id
       );
     },
@@ -45,28 +45,30 @@ export default {
     },
 
     progress() {
-      return (this.questionIndex + 1) / (this.test.data.questions.length + 1);
+      return (
+        (this.questionIndex + 1) / (this.session.test.questions.length + 1)
+      );
     }
   },
 
   methods: {
     getQuestionByIndex(index) {
-      const question = this.test.data.questions[index];
+      const question = this.session.test.questions[index];
       if (question) {
         return question.id;
       }
       return null;
     },
     goToQuestion(questionId) {
-      const testId = this.test.id;
+      const { sessionId } = this.session;
       if (!questionId) {
         return;
       }
 
       this.$router.push({
-        name: 'test-testId-questions-questionId',
+        name: 'session-sessionId-questions-questionId',
         params: {
-          testId,
+          sessionId,
           questionId
         }
       });
@@ -76,11 +78,11 @@ export default {
       if (this.nextQuestionId) {
         this.goToQuestion(this.nextQuestionId);
       } else {
-        const testId = this.test.id;
+        const { sessionId } = this.session;
         this.$router.push({
-          name: 'test-testId-done',
+          name: 'session-sessionId-done',
           params: {
-            testId
+            sessionId
           }
         });
       }
@@ -90,19 +92,23 @@ export default {
       if (this.prevQuestionId) {
         this.goToQuestion(this.prevQuestionId);
       } else {
-        const testId = this.test.id;
+        const { sessionId } = this.session;
         this.$router.push({
-          name: 'test-testId',
+          name: 'session-sessionId',
           params: {
-            testId
+            sessionId
           }
         });
       }
     },
 
     setAnswer({ questionId, answerId }) {
-      const testId = this.test.id;
-      this.$store.commit('test/setAnswer', { testId, questionId, answerId });
+      const { sessionId } = this.session;
+      this.$store.commit('session/setAnswer', {
+        sessionId,
+        questionId,
+        answerId
+      });
     }
   }
 };
@@ -113,6 +119,7 @@ export default {
     <Progress :value="progress"/>
 
     <Question
+      :session="session"
       :question="question"
       @selected="setAnswer"/>
 

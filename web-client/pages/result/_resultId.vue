@@ -3,18 +3,17 @@ export default {
   layout: 'test',
 
   computed: {
-    resultId() {
-      return this.$route.params.resultId;
-    },
-
     result() {
-      const id = this.resultId;
-      return this.$store.state.test.results.find(result => result.id === id);
+      const { resultId } = this.$route.params;
+      return this.$store.state.session.results.find(
+        result => result.resultId === resultId
+      );
     }
   },
 
   mounted() {
-    this.$store.dispatch('test/loadResult', { id: this.resultId });
+    const { resultId } = this.$route.params;
+    this.$store.dispatch('session/loadResult', { resultId });
   }
 };
 </script>

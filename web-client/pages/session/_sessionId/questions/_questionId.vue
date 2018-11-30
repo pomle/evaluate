@@ -1,14 +1,16 @@
 <script>
 export default {
   computed: {
-    test() {
-      const { testId } = this.$route.params;
-      return this.$store.state.test.tests.find(test => test.id === testId);
+    session() {
+      const { sessionId } = this.$route.params;
+      return this.$store.state.session.sessions.find(
+        session => session.sessionId === sessionId
+      );
     },
 
     question() {
       const { questionId } = this.$route.params;
-      return this.test.data.questions.find(
+      return this.session.test.questions.find(
         question => question.id === questionId
       );
     }
@@ -18,6 +20,6 @@ export default {
 
 <template>
   <nuxt-child
-    :test="test"
+    :session="session"
     :question="question"/>
 </template>

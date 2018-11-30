@@ -21,8 +21,9 @@ export default {
 
     <div class="questions">
       <Question
-        v-for="question in result.test.data.questions"
+        v-for="question in result.session.test.questions"
         :key="question.id"
+        :session="result.session"
         :question="question"/>
     </div>
   </div>

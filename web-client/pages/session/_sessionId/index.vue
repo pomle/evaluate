@@ -1,7 +1,7 @@
 <script>
 export default {
   props: {
-    test: {
+    session: {
       type: Object,
       required: true
     }
@@ -9,17 +9,17 @@ export default {
 
   methods: {
     start() {
-      const questions = this.test.data.questions;
+      const { questions } = this.session.test;
       const firstQuestion = questions[0];
       this.goToQuestion(firstQuestion.id);
     },
 
     goToQuestion(questionId) {
-      const testId = this.test.id;
+      const { sessionId } = this.session;
       this.$router.push({
-        name: 'test-testId-questions-questionId',
+        name: 'session-sessionId-questions-questionId',
         params: {
-          testId,
+          sessionId,
           questionId
         }
       });

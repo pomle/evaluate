@@ -3,6 +3,11 @@ import Prism from 'prismjs';
 
 export default {
   props: {
+    session: {
+      type: Object,
+      required: true
+    },
+
     question: {
       type: Object,
       required: true
@@ -31,6 +36,10 @@ export default {
         questionId,
         answerId
       });
+    },
+
+    isSelected(answer) {
+      return answer.id === this.session.answers[this.question.id].answerId;
     }
   }
 };
@@ -42,7 +51,7 @@ export default {
       <div
         v-for="(option, index) in options"
         :key="index"
-        :class="{selected: option.answer.id === question.answer.id}"
+        :class="{selected: isSelected(option.answer)}"
         class="option"
         @click="setAnswer(option.answer.id)">
         <pre class="language-javascript"><code v-html="option.html"/></pre>
