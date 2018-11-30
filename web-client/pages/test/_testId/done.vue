@@ -35,6 +35,10 @@ export default {
           questionId
         }
       })
+    },
+
+    submit() {
+      console.log(btoa(JSON.stringify(this.test)))
     }
   }
 }
@@ -47,7 +51,7 @@ export default {
     <main class="confirm">
       <h1>Ready to submit?</h1>
 
-      <button>Submit</button>
+      <button @click="submit">Submit</button>
     </main>
 
     <nav>
