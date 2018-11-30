@@ -1,7 +1,7 @@
+import GitHubStorage from '../lib/storage/github';
 import KVDBStorage from '../lib/storage/kvdb.io';
 
-const URL_ROOT = 'https://raw.githubusercontent.com/pomle/evaluate';
-
+const testStorage = new GitHubStorage();
 const resultStorage = new KVDBStorage();
 
 const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -13,12 +13,6 @@ function random(len = 8) {
     buffer.push(char);
   }
   return buffer.join('');
-}
-
-function fetchEncoded(url) {
-  return fetch(url)
-    .then(response => response.text())
-    .then(decode);
 }
 
 function encode(data) {
@@ -53,8 +47,8 @@ export const mutations = {
 
 export const actions = {
   async loadTest({ commit }, { sessionId, testId, resultId }) {
-    const testURL = [URL_ROOT, 'tests', testId].join('/');
-    const test = await fetchEncoded(testURL);
+    const testPath = ['pomle/evaluate', 'tests', testId].join('/');
+    const test = await testStorage.fetchBlob(testPath).then(decode);
 
     const answers = test.questions.reduce((answers, question) => {
       answers[question.id] = {
