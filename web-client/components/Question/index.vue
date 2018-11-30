@@ -22,6 +22,17 @@ export default {
         }
       })
     }
+  },
+
+  methods: {
+    setAnswer(answerId) {
+      const { testId, questionId } = this.$route.params
+      this.$store.commit('test/setAnswer', {
+        testId,
+        questionId,
+        answerId
+      })
+    }
   }
 }
 </script>
@@ -32,7 +43,8 @@ export default {
       <div
         v-for="(option, index) in options"
         :key="index"
-        class="option selected">
+        class="option selected"
+        @click="setAnswer(option.answer.id)">
         <pre class="language-javascript"><code v-html="option.html"/></pre>
       </div>
     </div>
