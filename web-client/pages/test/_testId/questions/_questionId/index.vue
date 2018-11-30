@@ -70,3 +70,19 @@ export default {
     </nav>
   </div>
 </template>
+
+<style lang="less">
+nav {
+  display: flex;
+  justify-content: space-between;
+
+  .prev,
+  .next {
+    margin: 1em;
+  }
+
+  button {
+    font-size: 20px;
+  }
+}
+</style>
