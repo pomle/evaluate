@@ -71,6 +71,10 @@ export default {
       &.selected {
         background-color: green;
       }
+
+      pre {
+        margin: 0;
+      }
     }
   }
 }
