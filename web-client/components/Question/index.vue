@@ -43,7 +43,8 @@ export default {
       <div
         v-for="(option, index) in options"
         :key="index"
-        class="option selected"
+        :class="{selected: option.answer.id === question.answer.id}"
+        class="option"
         @click="setAnswer(option.answer.id)">
         <pre class="language-javascript"><code v-html="option.html"/></pre>
       </div>
