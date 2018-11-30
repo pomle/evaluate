@@ -32,7 +32,7 @@ export default {
       <div
         v-for="(option, index) in options"
         :key="index"
-        class="option">
+        class="option selected">
         <pre class="language-javascript"><code v-html="option.html"/></pre>
       </div>
     </div>
@@ -50,8 +50,15 @@ export default {
     margin: -1em;
 
     .option {
+      border-radius: 6px;
+      cursor: pointer;
       margin: 1em;
       min-width: 400px;
+      padding: 5px;
+
+      &.selected {
+        background-color: green;
+      }
     }
   }
 }
