@@ -11,23 +11,16 @@ export default {
 
   computed: {
     options() {
-      const question = this.question
-      return [
-        {
+      return this.question.answers.map(answer => {
+        return {
+          answer,
           html: Prism.highlight(
-            question.good.content,
-            Prism.languages.javascript,
-            'javascript'
-          )
-        },
-        {
-          html: Prism.highlight(
-            question.bad.content,
+            answer.content,
             Prism.languages.javascript,
             'javascript'
           )
         }
-      ]
+      })
     }
   }
 }
@@ -39,7 +32,7 @@ export default {
       <div
         v-for="(option, index) in options"
         :key="index"
-        class="options">
+        class="option">
         <pre class="language-javascript"><code v-html="option.html"/></pre>
       </div>
     </div>
@@ -48,8 +41,18 @@ export default {
 
 <style lang="less">
 .question {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
   .options {
     display: flex;
+    margin: -1em;
+
+    .option {
+      margin: 1em;
+      min-width: 400px;
+    }
   }
 }
 </style>

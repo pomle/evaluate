@@ -8,10 +8,9 @@ export default {
 
     question() {
       const { questionId } = this.$route.params
-      return this.test.data.tests.find((question, index) => {
-        console.log(index, questionId)
-        return index == questionId
-      })
+      return this.test.data.questions.find(
+        (question, index) => index == questionId
+      )
     }
   }
 }
