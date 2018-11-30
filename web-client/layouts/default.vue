@@ -17,6 +17,10 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  background: #181818;
+}
+
 *,
 *:before,
 *:after {
