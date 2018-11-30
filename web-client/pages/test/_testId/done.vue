@@ -1,5 +1,5 @@
 <script>
-import Progress from '~/components/Progress'
+import Progress from '~/components/Progress';
 
 export default {
   layout: 'test',
@@ -17,15 +17,15 @@ export default {
 
   methods: {
     prev() {
-      const questions = this.test.data.questions
-      const lastQuestion = questions[questions.length - 1]
-      this.goToQuestion(lastQuestion.id)
+      const questions = this.test.data.questions;
+      const lastQuestion = questions[questions.length - 1];
+      this.goToQuestion(lastQuestion.id);
     },
 
     goToQuestion(questionId) {
-      const testId = this.test.id
+      const testId = this.test.id;
       if (!questionId) {
-        return
+        return;
       }
 
       this.$router.push({
@@ -34,14 +34,14 @@ export default {
           testId,
           questionId
         }
-      })
+      });
     },
 
     submit() {
-      console.log(btoa(JSON.stringify(this.test)))
+      console.log(btoa(JSON.stringify(this.test)));
     }
   }
-}
+};
 </script>
 
 <template>
@@ -51,7 +51,9 @@ export default {
     <main class="confirm">
       <h1>Ready to submit?</h1>
 
-      <button class="primary" @click="submit">Submit</button>
+      <button 
+        class="primary" 
+        @click="submit">Submit</button>
     </main>
 
     <nav>

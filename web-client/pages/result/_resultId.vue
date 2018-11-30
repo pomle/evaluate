@@ -4,19 +4,19 @@ export default {
 
   computed: {
     resultId() {
-      return this.$route.params.resultId
+      return this.$route.params.resultId;
     },
 
     result() {
-      const id = this.resultId
-      return this.$store.state.test.results.find(result => result.id === id)
+      const id = this.resultId;
+      return this.$store.state.test.results.find(result => result.id === id);
     }
   },
 
   mounted() {
-    this.$store.dispatch('test/loadResult', { id: this.resultId })
+    this.$store.dispatch('test/loadResult', { id: this.resultId });
   }
-}
+};
 </script>
 
 <template>

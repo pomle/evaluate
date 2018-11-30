@@ -4,19 +4,19 @@ export default {
 
   computed: {
     testId() {
-      return this.$route.params.testId
+      return this.$route.params.testId;
     },
 
     test() {
-      const id = this.testId
-      return this.$store.state.test.tests.find(test => test.id === id)
+      const id = this.testId;
+      return this.$store.state.test.tests.find(test => test.id === id);
     }
   },
 
   mounted() {
-    this.$store.dispatch('test/loadTest', { id: this.testId })
+    this.$store.dispatch('test/loadTest', { id: this.testId });
   }
-}
+};
 </script>
 
 <template>

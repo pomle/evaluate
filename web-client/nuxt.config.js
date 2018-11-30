@@ -1,4 +1,4 @@
-const pkg = require('./package')
+const pkg = require('./package');
 
 module.exports = {
   mode: 'spa',
@@ -48,4 +48,4 @@ module.exports = {
     ** You can extend webpack config here
     */
   }
-}
+};

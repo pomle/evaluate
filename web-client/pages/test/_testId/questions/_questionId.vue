@@ -2,18 +2,18 @@
 export default {
   computed: {
     test() {
-      const { testId } = this.$route.params
-      return this.$store.state.test.tests.find(test => test.id === testId)
+      const { testId } = this.$route.params;
+      return this.$store.state.test.tests.find(test => test.id === testId);
     },
 
     question() {
-      const { questionId } = this.$route.params
+      const { questionId } = this.$route.params;
       return this.test.data.questions.find(
         question => question.id === questionId
-      )
+      );
     }
   }
-}
+};
 </script>
 
 <template>

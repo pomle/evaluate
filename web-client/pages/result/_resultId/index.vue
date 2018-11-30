@@ -1,5 +1,5 @@
 <script>
-import Question from '~/components/Question'
+import Question from '~/components/Question';
 
 export default {
   components: {
@@ -12,7 +12,7 @@ export default {
       required: true
     }
   }
-}
+};
 </script>
 
 <template>
@@ -30,5 +30,10 @@ export default {
 
 <style lang="less">
 .result-page {
+  .questions {
+    .question {
+      margin: 2em 0;
+    }
+  }
 }
 </style>

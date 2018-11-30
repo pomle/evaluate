@@ -9,23 +9,23 @@ export default {
 
   methods: {
     start() {
-      const questions = this.test.data.questions
-      const firstQuestion = questions[0]
-      this.goToQuestion(firstQuestion.id)
+      const questions = this.test.data.questions;
+      const firstQuestion = questions[0];
+      this.goToQuestion(firstQuestion.id);
     },
 
     goToQuestion(questionId) {
-      const testId = this.test.id
+      const testId = this.test.id;
       this.$router.push({
         name: 'test-testId-questions-questionId',
         params: {
           testId,
           questionId
         }
-      })
+      });
     }
   }
-}
+};
 </script>
 
 <template>

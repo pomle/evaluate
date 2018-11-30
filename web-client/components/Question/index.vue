@@ -1,5 +1,5 @@
 <script>
-import Prism from 'prismjs'
+import Prism from 'prismjs';
 
 export default {
   props: {
@@ -19,21 +19,21 @@ export default {
             Prism.languages.javascript,
             'javascript'
           )
-        }
-      })
+        };
+      });
     }
   },
 
   methods: {
     setAnswer(answerId) {
-      const { questionId } = this.$route.params
+      const { questionId } = this.$route.params;
       this.$emit('selected', {
         questionId,
         answerId
-      })
+      });
     }
   }
-}
+};
 </script>
 
 <template>

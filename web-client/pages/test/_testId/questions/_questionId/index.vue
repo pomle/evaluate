@@ -1,6 +1,6 @@
 <script>
-import Question from '~/components/Question'
-import Progress from '~/components/Progress'
+import Question from '~/components/Question';
+import Progress from '~/components/Progress';
 
 export default {
   components: {
@@ -21,27 +21,27 @@ export default {
   },
 
   head() {
-    const current = this.questionIndex + 1
-    const total = this.test.data.questions.length
+    const current = this.questionIndex + 1;
+    const total = this.test.data.questions.length;
 
     return {
       title: `${current} / ${total}`
-    }
+    };
   },
 
   computed: {
     questionIndex() {
       return this.test.data.questions.findIndex(
         question => question.id === this.question.id
-      )
+      );
     },
 
     nextQuestionId() {
-      return this.getQuestionByIndex(this.questionIndex + 1)
+      return this.getQuestionByIndex(this.questionIndex + 1);
     },
 
     prevQuestionId() {
-      return this.getQuestionByIndex(this.questionIndex - 1)
+      return this.getQuestionByIndex(this.questionIndex - 1);
     },
 
     progress() {
@@ -51,16 +51,16 @@ export default {
 
   methods: {
     getQuestionByIndex(index) {
-      const question = this.test.data.questions[index]
+      const question = this.test.data.questions[index];
       if (question) {
-        return question.id
+        return question.id;
       }
-      return null
+      return null;
     },
     goToQuestion(questionId) {
-      const testId = this.test.id
+      const testId = this.test.id;
       if (!questionId) {
-        return
+        return;
       }
 
       this.$router.push({
@@ -69,43 +69,43 @@ export default {
           testId,
           questionId
         }
-      })
+      });
     },
 
     next() {
       if (this.nextQuestionId) {
-        this.goToQuestion(this.nextQuestionId)
+        this.goToQuestion(this.nextQuestionId);
       } else {
-        const testId = this.test.id
+        const testId = this.test.id;
         this.$router.push({
           name: 'test-testId-done',
           params: {
             testId
           }
-        })
+        });
       }
     },
 
     prev() {
       if (this.prevQuestionId) {
-        this.goToQuestion(this.prevQuestionId)
+        this.goToQuestion(this.prevQuestionId);
       } else {
-        const testId = this.test.id
+        const testId = this.test.id;
         this.$router.push({
           name: 'test-testId',
           params: {
             testId
           }
-        })
+        });
       }
     },
 
     setAnswer({ questionId, answerId }) {
-      const testId = this.test.id
-      this.$store.commit('test/setAnswer', { testId, questionId, answerId })
+      const testId = this.test.id;
+      this.$store.commit('test/setAnswer', { testId, questionId, answerId });
     }
   }
-}
+};
 </script>
 
 <template>
