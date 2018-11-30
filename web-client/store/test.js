@@ -1,4 +1,8 @@
+import KVDBStorage from '../lib/storage/kvdb.io';
+
 const URL_ROOT = 'https://raw.githubusercontent.com/pomle/evaluate';
+
+const resultStorage = new KVDBStorage();
 
 const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -15,6 +19,10 @@ function fetchEncoded(url) {
   return fetch(url)
     .then(response => response.text())
     .then(decode);
+}
+
+function encode(data) {
+  return btoa(JSON.stringify(data));
 }
 
 function decode(raw) {
@@ -65,8 +73,7 @@ export const actions = {
   },
 
   async loadResult({ commit }, { id }) {
-    const resultURL = [URL_ROOT, 'results', id].join('/');
-    const data = await fetchEncoded(resultURL);
+    const data = await resultStorage.fetch(id).then(decode);
 
     commit('addResult', {
       result: {
@@ -74,5 +81,12 @@ export const actions = {
         test: data
       }
     });
+  },
+
+  async saveResult({ state, commit }, { testId }) {
+    const test = state.tests.find(test => test.id === testId);
+    const resultId = random(6);
+    await resultStorage.store(resultId, encode(test));
+    console.log(resultId);
   }
 };

@@ -38,7 +38,9 @@ export default {
     },
 
     submit() {
-      console.log(btoa(JSON.stringify(this.test)));
+      this.$store.dispatch('test/saveResult', {
+        testId: this.test.id
+      });
     }
   }
 };
