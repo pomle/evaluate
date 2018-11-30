@@ -19,21 +19,34 @@ export default {
   <div class="result-page">
     <h1>Results</h1>
 
-    <div class="questions">
-      <Question
+    <div class="results">
+      <div
         v-for="question in result.session.test.questions"
         :key="question.id"
-        :session="result.session"
-        :question="question"/>
+        class="result">
+        <Question
+          :session="result.session"
+          :question="question"/>
+
+        <div class="comment">
+          Comment {{ result.session.answers[question.id].comment }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="less">
 .result-page {
-  .questions {
-    .question {
-      margin: 2em 0;
+  .results {
+    margin: -5em 0;
+
+    .result {
+      margin: 5em 0;
+
+      .question {
+        margin: 1em 0;
+      }
     }
   }
 }
