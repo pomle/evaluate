@@ -74,26 +74,35 @@ export default {
 
     <nav>
       <div class="prev">
-        <nuxt-link
-          v-if="prevQuestionId"
-          :to="{name: 'test-testId-questions-questionId', params: {
-            testId: test.id,
-            questionId: prevQuestionId,
-        }}"><button>Prev</button></nuxt-link>
+        <button
+          :class="{disabled: !prevQuestionId}"
+          @click.prevent="goToQuestion(prevQuestionId)">Prev</button>
       </div>
       <div class="next">
-        <nuxt-link
-          v-if="nextQuestionId"
-          :to="{name: 'test-testId-questions-questionId', params: {
-            testId: test.id,
-            questionId: nextQuestionId,
-        }}"><button>Next</button></nuxt-link>
+        <button
+          :class="{disabled: !nextQuestionId}"
+          @click.prevent="goToQuestion(nextQuestionId)">Next</button>
       </div>
     </nav>
   </div>
 </template>
 
 <style lang="less">
+.question-page {
+  display: flex;
+  flex-flow: column;
+  margin: auto;
+  width: 1000px;
+
+  .question {
+    height: 500px;
+    margin: 20px -20px;
+    .options {
+      width: 100%;
+    }
+  }
+}
+
 nav {
   display: flex;
   justify-content: space-between;
