@@ -30,6 +30,12 @@ button.disabled {
   cursor: default;
 }
 
+a {
+  color: #c85782;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 *,
 *:before,
 *:after {

@@ -5,24 +5,35 @@ export default {
       type: Object,
       required: true
     }
+  },
+
+  methods: {
+    start() {
+      const questions = this.test.data.questions
+      const firstQuestion = questions[0]
+      this.goToQuestion(firstQuestion.id)
+    },
+
+    goToQuestion(questionId) {
+      const testId = this.test.id
+      this.$router.push({
+        name: 'test-testId-questions-questionId',
+        params: {
+          testId,
+          questionId
+        }
+      })
+    }
   }
 }
 </script>
 
 <template>
-  <div class="test">
-    <ul>
-      <li
-        v-for="(question, index) in test.data.questions"
-        :key="question.id">
-        <nuxt-link
-          :to="{name: 'test-testId-questions-questionId', params: {
-            testId: test.id,
-            questionId: question.id,
-        }}">Question {{ index + 1 }}</nuxt-link>
-      </li>
-    </ul>
+  <div class="start-page">
+    <main class="confirm">
+      <h1>Welcome to Evaluate?</h1>
 
-    <nuxt-child :test="test"/>
+      <button @click.prevent="start">Start</button>
+    </main>
   </div>
 </template>
