@@ -26,12 +26,16 @@ button {
   background: #c85782;
   border: none;
   color: #fff;
+  cursor: pointer;
   font-weight: bold;
+  outline: none;
   padding: 1em 2em;
 }
 
-button:active {
-  outline: none;
+button.disabled {
+  background: #222;
+  color: #555;
+  cursor: default;
 }
 
 *,

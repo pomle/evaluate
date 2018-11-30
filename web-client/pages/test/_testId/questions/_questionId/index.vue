@@ -47,6 +47,20 @@ export default {
         return question.id
       }
       return null
+    },
+    goToQuestion(questionId) {
+      const testId = this.test.id
+      if (!questionId) {
+        return
+      }
+
+      this.$router.push({
+        name: 'test-testId-questions-questionId',
+        params: {
+          testId,
+          questionId
+        }
+      })
     }
   }
 }
