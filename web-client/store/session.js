@@ -4,17 +4,6 @@ import KVDBStorage from '../lib/storage/kvdb.io';
 const testStorage = new GitHubStorage();
 const resultStorage = new KVDBStorage();
 
-const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-function random(len = 8) {
-  const buffer = [];
-  for (let i = 0; i < len; i++) {
-    const char = CHARS[(CHARS.length * Math.random()) | 0];
-    buffer.push(char);
-  }
-  return buffer.join('');
-}
-
 function encode(data) {
   return btoa(JSON.stringify(data));
 }
