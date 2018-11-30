@@ -24,6 +24,7 @@ for (const testName of config.tests) {
   const bad = path.join(testPath, 'bad.js');
 
   const question = {
+    id: uuidv4(),
     answers: [
       loadSnippet(good),
       loadSnippet(bad),
