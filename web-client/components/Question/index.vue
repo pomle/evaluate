@@ -64,9 +64,9 @@ export default {
 
     .option {
       border-radius: 6px;
+      flex: 0 0 50%;
       cursor: pointer;
       margin: 1em;
-      min-width: 400px;
       padding: 5px;
 
       &.selected {
