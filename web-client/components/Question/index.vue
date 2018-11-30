@@ -60,6 +60,7 @@ export default {
   .options {
     display: flex;
     margin: -0.5em;
+    width: 100%;
 
     .option {
       border-radius: 6px;

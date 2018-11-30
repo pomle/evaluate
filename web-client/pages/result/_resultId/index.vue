@@ -17,6 +17,8 @@ export default {
 
 <template>
   <div class="result-page">
+    <h1>Results</h1>
+
     <div class="questions">
       <Question
         v-for="question in result.test.data.questions"
