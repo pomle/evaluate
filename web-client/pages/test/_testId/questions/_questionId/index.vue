@@ -20,6 +20,15 @@ export default {
     }
   },
 
+  head() {
+    const current = this.questionIndex + 1
+    const total = this.test.data.questions.length
+
+    return {
+      title: `${current} / ${total}`
+    }
+  },
+
   computed: {
     questionIndex() {
       return this.test.data.questions.findIndex(
