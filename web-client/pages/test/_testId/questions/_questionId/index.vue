@@ -1,9 +1,11 @@
 <script>
 import Question from '~/components/Question'
+import Progress from '~/components/Progress'
 
 export default {
   components: {
-    Question
+    Question,
+    Progress
   },
 
   props: {
@@ -31,6 +33,10 @@ export default {
 
     prevQuestionId() {
       return this.getQuestionByIndex(this.questionIndex - 1)
+    },
+
+    progress() {
+      return this.questionIndex / this.test.data.questions.length
     }
   },
 
@@ -48,6 +54,8 @@ export default {
 
 <template>
   <div class="question-page">
+    <Progress :value="progress"/>
+
     <Question :question="question"/>
 
     <nav>
