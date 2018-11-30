@@ -21,10 +21,6 @@
     .next {
       margin: 1em;
     }
-
-    button {
-      font-size: 20px;
-    }
   }
 }
 </style>

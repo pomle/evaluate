@@ -75,10 +75,6 @@ export default {
     h1 {
       margin: 2em 0;
     }
-
-    button {
-      font-size: 22px;
-    }
   }
 }
 </style>
