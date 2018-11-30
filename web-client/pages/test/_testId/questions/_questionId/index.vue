@@ -61,6 +61,24 @@ export default {
           questionId
         }
       })
+    },
+
+    next() {
+      if (this.nextQuestionId) {
+        this.goToQuestion(this.nextQuestionId);
+      } else {
+        const testId = this.test.id
+        this.$router.push({
+          name: 'test-testId-done',
+          params: {
+            testId,
+          }
+        });
+      }
+    },
+
+    prev() {
+      this.goToQuestion(this.prevQuestionId);
     }
   }
 }
@@ -76,12 +94,10 @@ export default {
       <div class="prev">
         <button
           :class="{disabled: !prevQuestionId}"
-          @click.prevent="goToQuestion(prevQuestionId)">Prev</button>
+          @click.prevent="prev">Prev</button>
       </div>
       <div class="next">
-        <button
-          :class="{disabled: !nextQuestionId}"
-          @click.prevent="goToQuestion(nextQuestionId)">Next</button>
+        <button @click.prevent="next">Next</button>
       </div>
     </nav>
   </div>

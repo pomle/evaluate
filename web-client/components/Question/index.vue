@@ -60,13 +60,13 @@ export default {
 
   .options {
     display: flex;
-    margin: -1em;
+    margin: -0.5em;
 
     .option {
       border-radius: 6px;
       flex: 1 1;
       cursor: pointer;
-      margin: 1em;
+      margin: 0.5em;
       padding: 5px;
 
       &.selected {
