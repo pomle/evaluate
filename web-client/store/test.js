@@ -54,8 +54,8 @@ export const mutations = {
 };
 
 export const actions = {
-  async loadTest({ commit }, { id }) {
-    const testURL = [URL_ROOT, 'tests', id].join('/');
+  async loadTest({ commit }, { testId, resultId }) {
+    const testURL = [URL_ROOT, 'tests', testId].join('/');
     const data = await fetchEncoded(testURL);
 
     for (const question of data.questions) {
@@ -66,7 +66,8 @@ export const actions = {
 
     commit('addTest', {
       test: {
-        id,
+        id: testId,
+        resultId,
         data
       }
     });
@@ -85,7 +86,7 @@ export const actions = {
 
   async saveResult({ state, commit }, { testId }) {
     const test = state.tests.find(test => test.id === testId);
-    const resultId = random(6);
+    const resultId = test.resultId;
     await resultStorage.store(resultId, encode(test));
     console.log(resultId);
   }

@@ -3,18 +3,19 @@ export default {
   layout: 'test',
 
   computed: {
-    testId() {
-      return this.$route.params.testId;
-    },
-
     test() {
-      const id = this.testId;
-      return this.$store.state.test.tests.find(test => test.id === id);
+      const {testId} = this.$route.params;
+      return this.$store.state.test.tests.find(test => test.id === testId);
     }
   },
 
   mounted() {
-    this.$store.dispatch('test/loadTest', { id: this.testId });
+    const {testId} = this.$route.params;
+    const {resultId} = this.$route.query;
+    this.$store.dispatch('test/loadTest', {
+      testId,
+      resultId,
+    });
   }
 };
 </script>
