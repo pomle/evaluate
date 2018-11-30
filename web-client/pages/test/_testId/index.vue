@@ -13,13 +13,13 @@ export default {
   <div class="test">
     <ul>
       <li
-        v-for="question in test.data.questions"
+        v-for="(question, index) in test.data.questions"
         :key="question.id">
         <nuxt-link
           :to="{name: 'test-testId-questions-questionId', params: {
             testId: test.id,
             questionId: question.id,
-        }}">Question {{ index }}</nuxt-link>
+        }}">Question {{ index + 1 }}</nuxt-link>
       </li>
     </ul>
 

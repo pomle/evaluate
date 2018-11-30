@@ -9,7 +9,7 @@ export default {
     question() {
       const { questionId } = this.$route.params
       return this.test.data.questions.find(
-        question => question.id == questionId
+        question => question.id === questionId
       )
     }
   }
@@ -18,5 +18,6 @@ export default {
 
 <template>
   <nuxt-child
+    :test="test"
     :question="question"/>
 </template>

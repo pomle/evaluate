@@ -74,6 +74,7 @@ export default {
       }
 
       pre {
+        height: 100%;
         margin: 0;
       }
     }
