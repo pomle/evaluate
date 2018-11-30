@@ -65,6 +65,7 @@ export default {
   display: flex;
   flex-flow: column;
   align-items: center;
+  margin: 0 -12px;
 
   .options {
     display: flex;

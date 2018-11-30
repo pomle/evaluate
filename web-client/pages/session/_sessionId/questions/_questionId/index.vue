@@ -30,6 +30,21 @@ export default {
   },
 
   computed: {
+    comment: {
+      get() {
+        return this.session.answers[this.question.id].comment;
+      },
+
+      set(comment) {
+        const { sessionId } = this.session;
+        this.$store.commit('session/setComment', {
+          sessionId,
+          questionId: this.question.id,
+          comment
+        });
+      }
+    },
+
     questionIndex() {
       return this.session.test.questions.findIndex(
         question => question.id === this.question.id
@@ -118,10 +133,18 @@ export default {
   <div class="question-page">
     <Progress :value="progress"/>
 
-    <Question
-      :session="session"
-      :question="question"
-      @selected="setAnswer"/>
+    <div class="response">
+      <div class="question-container">
+        <Question
+          :session="session"
+          :question="question"
+          @selected="setAnswer"/>
+      </div>
+
+      <div class="comment">
+        <textarea v-model="comment"/>
+      </div>
+    </div>
 
     <nav>
       <div class="prev">
@@ -139,11 +162,26 @@ export default {
 
 <style lang="less">
 .question-page {
-  .question {
-    height: 500px;
-    margin: 20px -20px;
-    .options {
-      width: 100%;
+  .response {
+    margin: 2em 0;
+
+    .question-container {
+      margin: 80px 0;
+    }
+
+    .comment {
+      margin: 80px 0;
+
+      textarea {
+        background: #222222;
+        border: none;
+        border-radius: 0.5em;
+        color: #fff;
+        font-size: 18px;
+        height: 100px;
+        padding: 0.8em;
+        width: 100%;
+      }
     }
   }
 }

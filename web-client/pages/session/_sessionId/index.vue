@@ -30,10 +30,14 @@ export default {
 
 <template>
   <div class="start-page">
-    <main class="confirm">
-      <h1>Welcome to Evaluate?</h1>
+    <main>
+      <h1>Evaluate</h1>
 
-      <button @click.prevent="start">Start</button>
+      <p>You will be presented <b>{{ session.test.questions.length }}</b> questions.</p>
+
+      <button
+        class="primary"
+        @click.prevent="start">Start</button>
     </main>
   </div>
 </template>

@@ -31,6 +31,13 @@ export const mutations = {
       session => session.sessionId === sessionId
     );
     session.answers[questionId].answerId = answerId;
+  },
+
+  setComment(state, { sessionId, questionId, comment }) {
+    const session = state.sessions.find(
+      session => session.sessionId === sessionId
+    );
+    session.answers[questionId].comment = comment;
   }
 };
 
