@@ -113,7 +113,9 @@ export default {
           @click.prevent="prev">Prev</button>
       </div>
       <div class="next">
-        <button @click.prevent="next">Next</button>
+        <button
+          class="primary"
+          @click.prevent="next">Next</button>
       </div>
     </nav>
   </div>

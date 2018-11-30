@@ -15,8 +15,9 @@ body {
 }
 
 button {
-  background: #c85782;
-  border: none;
+  background: transparent;
+  border: solid 1px #c85782;
+  border-radius: 0.2em;
   color: #fff;
   cursor: pointer;
   font-weight: bold;
@@ -24,8 +25,13 @@ button {
   padding: 1em 2em;
 }
 
+button.primary {
+  background: #c85782;
+}
+
 button.disabled {
   background: #222;
+  border: transparent;
   color: #555;
   cursor: default;
 }
