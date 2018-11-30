@@ -8,12 +8,17 @@ function fetchEncoded(url) {
 }
 
 export const state = () => ({
+  results: [],
   tests: []
 })
 
 export const mutations = {
   addTest(state, { test }) {
     state.tests.push(test)
+  },
+
+  addResult(state, { result }) {
+    state.results.push(result)
   },
 
   setAnswer(state, { testId, questionId, answerId }) {
@@ -41,6 +46,18 @@ export const actions = {
       test: {
         id,
         data
+      }
+    })
+  },
+
+  async loadResult({ commit }, { id }) {
+    const resultURL = [URL_ROOT, 'results', id].join('/')
+    const data = await fetchEncoded(resultURL)
+
+    commit('addResult', {
+      result: {
+        id,
+        test: data
       }
     })
   }
