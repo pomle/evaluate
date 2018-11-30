@@ -15,6 +15,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { href: '/css/main.css', rel: 'stylesheet' },
       { href: '/css/prism.css', rel: 'stylesheet' }
     ]
   },
