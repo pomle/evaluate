@@ -35,6 +35,11 @@ jobs:
   deploy-web-client:
     docker:
       - image: circleci/node:8
+    environment:
+      GIT_COMMITTER_NAME: 'Evaluate Bot'
+      GIT_COMMITTER_EMAIL: 'no-reply@bot.x'
+      GIT_AUTHOR_NAME: 'Evaluate Bot'
+      GIT_AUTHOR_EMAIL: 'no-reply@bot.x'
     steps:
       - checkout
       - run:
