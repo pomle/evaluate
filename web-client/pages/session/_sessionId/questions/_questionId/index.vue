@@ -167,11 +167,11 @@ export default {
     margin: 2em 0;
 
     .question-container {
-      margin: 80px 0;
+      margin: 40px 0;
     }
 
     .comment {
-      margin: 80px 0;
+      margin: 40px 0;
 
       textarea {
         height: 100px;

@@ -12,6 +12,12 @@
   margin: auto;
   width: 1000px;
 
+  .progress {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+
   nav {
     display: flex;
     justify-content: space-between;
