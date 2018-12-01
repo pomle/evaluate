@@ -9,16 +9,6 @@ export default {
         session => session.sessionId === sessionId
       );
     }
-  },
-
-  mounted() {
-    const { sessionId } = this.$route.params;
-    const { testId, resultId } = this.$route.query;
-    this.$store.dispatch('session/loadTest', {
-      sessionId,
-      testId,
-      resultId
-    });
   }
 };
 </script>
