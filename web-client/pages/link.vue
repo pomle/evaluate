@@ -15,8 +15,6 @@ export default {
     </section>
 
     <section class="take-test">
-      <h2>Create a test link</h2>
-
       <LinkComposer/>
     </section>
   </div>

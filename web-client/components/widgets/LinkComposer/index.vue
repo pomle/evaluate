@@ -7,15 +7,6 @@ export default {
       resultId: random(12),
       testRef: 'cae844ce-f487-11e8-8f10-1040f388afa6'
     };
-  },
-
-  computed: {
-    link() {
-      const link = `/test?testId=${encodeURIComponent(
-        this.testRef
-      )}&resultId=${encodeURIComponent(this.resultId)}`;
-      return link;
-    }
   }
 };
 </script>
@@ -39,8 +30,12 @@ export default {
       </tbody>
     </table>
 
-    <div class="link">
-      <a :href="link">{{ link }}</a>
+    <div class="testLink">
+      <nuxt-link :to="{name: 'test', query: {testId: testRef, resultId}}">Test URL</nuxt-link>
+    </div>
+
+    <div class="resultLink">
+      <nuxt-link :to="{name: 'result-resultId', params: {resultId}}">Result URL</nuxt-link>
     </div>
   </div>
 </template>
