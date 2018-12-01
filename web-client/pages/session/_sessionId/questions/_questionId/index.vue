@@ -143,7 +143,7 @@ export default {
       </div>
 
       <div class="comment">
-        <textarea v-model="comment"/>
+        <textarea placeholder="Motivate your answer" v-model="comment"/>
       </div>
     </div>
 
