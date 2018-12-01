@@ -1,0 +1,70 @@
+html {
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  background: #181818;
+}
+
+body,
+input,
+textarea {
+  color: #fff;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+button, input, textarea {
+  outline: none;
+}
+
+input, textarea {
+  background: #222222;
+  border: none;
+  border-radius: 0.5em;
+  color: #fff;
+  font-size: 18px;
+  padding: 0.8em;
+}
+
+button {
+  background: transparent;
+  border: solid 1px #c85782;
+  border-radius: 0.2em;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 1em 2em;
+}
+
+button.primary {
+  background: #c85782;
+}
+
+button.disabled {
+  background: #222;
+  border: transparent;
+  color: #555;
+  cursor: default;
+}
+
+a {
+  color: #c85782;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
