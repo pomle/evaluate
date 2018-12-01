@@ -10,9 +10,7 @@ export default {
 
     question() {
       const { questionId } = this.$route.params;
-      return this.session.test.questions.find(
-        question => question.id === questionId
-      );
+      return this.session.test.questions[questionId - 1];
     }
   }
 };

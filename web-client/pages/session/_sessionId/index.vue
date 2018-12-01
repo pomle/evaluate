@@ -9,9 +9,7 @@ export default {
 
   methods: {
     start() {
-      const { questions } = this.session.test;
-      const firstQuestion = questions[0];
-      this.goToQuestion(firstQuestion.id);
+      this.goToQuestion(1);
     },
 
     goToQuestion(questionId) {

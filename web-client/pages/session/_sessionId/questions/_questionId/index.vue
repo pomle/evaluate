@@ -52,11 +52,11 @@ export default {
     },
 
     nextQuestionId() {
-      return this.getQuestionByIndex(this.questionIndex + 1);
+      return this.questionIndex + 2;
     },
 
     prevQuestionId() {
-      return this.getQuestionByIndex(this.questionIndex - 1);
+      return this.questionIndex;
     },
 
     progress() {
@@ -74,6 +74,7 @@ export default {
       }
       return null;
     },
+
     goToQuestion(questionId) {
       const { sessionId } = this.session;
       if (!questionId) {
@@ -90,7 +91,7 @@ export default {
     },
 
     next() {
-      if (this.nextQuestionId) {
+      if (this.nextQuestionId <= this.session.test.questions.length) {
         this.goToQuestion(this.nextQuestionId);
       } else {
         const { sessionId } = this.session;
@@ -104,7 +105,7 @@ export default {
     },
 
     prev() {
-      if (this.prevQuestionId) {
+      if (this.prevQuestionId > 0) {
         this.goToQuestion(this.prevQuestionId);
       } else {
         const { sessionId } = this.session;

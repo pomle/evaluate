@@ -18,8 +18,7 @@ export default {
   methods: {
     prev() {
       const questions = this.session.test.questions;
-      const lastQuestion = questions[questions.length - 1];
-      this.goToQuestion(lastQuestion.id);
+      this.goToQuestion(questions.length);
     },
 
     goToQuestion(questionId) {

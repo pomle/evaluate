@@ -31,9 +31,8 @@ export default {
 
   methods: {
     setAnswer(answerId) {
-      const { questionId } = this.$route.params;
       this.$emit('selected', {
-        questionId,
+        questionId: this.question.id,
         answerId
       });
     },
