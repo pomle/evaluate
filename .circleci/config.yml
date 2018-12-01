@@ -32,9 +32,36 @@ jobs:
           working_directory: web-client
           command: yarn lint
 
+  deploy-web-client:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run:
+          name: Install
+          working_directory: web-client
+          command: yarn install
+      - run:
+          name: Deploy
+          working_directory: web-client
+          command: REPOSITORY_URL=$CIRCLE_REPOSITORY_URL yarn run nuxt-deploy
+
+
 workflows:
   version: 2
   test-flow:
     jobs:
       - test-challenges
       - test-web-client
+
+  deploy-flow:
+    jobs:
+      - test-web-client
+
+      - deploy-web-client:
+          requires:
+            - test-web-client
+          filters:
+            branches:
+              only:
+                - master

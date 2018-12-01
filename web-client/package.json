@@ -20,6 +20,7 @@
     "prismjs": "^1.15.0"
   },
   "devDependencies": {
+    "@pomle/nuxt-deploy": "^0.2.0",
     "babel-eslint": "^8.2.1",
     "eslint": "^5.0.1",
     "eslint-config-prettier": "^3.1.0",
