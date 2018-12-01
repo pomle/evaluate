@@ -41,5 +41,6 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+    publicPath: '/' + (process.env.APP_PATH || 'app') + '/'
   }
 };

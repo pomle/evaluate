@@ -49,7 +49,7 @@ jobs:
       - run:
           name: Deploy
           working_directory: web-client
-          command: REPOSITORY_URL=$CIRCLE_REPOSITORY_URL yarn run nuxt-deploy
+          command: APP_PATH=$CIRCLE_SHA1 REPOSITORY_URL=$CIRCLE_REPOSITORY_URL yarn run nuxt-deploy
 
 
 workflows:
