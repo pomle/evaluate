@@ -4,7 +4,7 @@ export default {
     return {
       testRef: null
     };
-  },
+  }
 };
 </script>
 
@@ -14,7 +14,7 @@ export default {
       <tr>
         <th>Test Reference</th>
         <td>
-          <input v-model="testRef"/>
+          <input v-model="testRef">
         </td>
       </tr>
     </table>
@@ -24,5 +24,4 @@ export default {
 </template>
 
 <style lang="less">
-
 </style>

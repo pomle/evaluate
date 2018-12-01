@@ -3,8 +3,8 @@ import TestStarter from '~/components/widgets/TestStarter';
 
 export default {
   components: {
-    TestStarter,
-  },
+    TestStarter
+  }
 };
 </script>
 
@@ -23,7 +23,6 @@ export default {
 </template>
 
 <style lang="less">
-  .intro-page {
-
-  }
+.intro-page {
+}
 </style>
