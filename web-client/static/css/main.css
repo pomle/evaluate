@@ -24,6 +24,15 @@ button, input, textarea {
   outline: none;
 }
 
+input, textarea {
+  background: #222222;
+  border: none;
+  border-radius: 0.5em;
+  color: #fff;
+  font-size: 18px;
+  padding: 0.8em;
+}
+
 button {
   background: transparent;
   border: solid 1px #c85782;

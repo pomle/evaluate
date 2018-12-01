@@ -173,13 +173,7 @@ export default {
       margin: 80px 0;
 
       textarea {
-        background: #222222;
-        border: none;
-        border-radius: 0.5em;
-        color: #fff;
-        font-size: 18px;
         height: 100px;
-        padding: 0.8em;
         width: 100%;
       }
     }
