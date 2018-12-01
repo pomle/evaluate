@@ -77,6 +77,7 @@ export default {
       cursor: pointer;
       margin: 0.5em;
       padding: 5px;
+      transition: background-color 0.2s;
 
       &.selected {
         background-color: #7fea7f;
