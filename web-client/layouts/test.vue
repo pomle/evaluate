@@ -6,7 +6,6 @@
 
 <style lang="less">
 .test-layout {
-  color: #fff;
   display: flex;
   flex-flow: column;
   margin: auto;
