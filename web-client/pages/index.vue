@@ -1,9 +1,17 @@
 <script>
+import LinkComposer from '~/components/widgets/LinkComposer';
 import TestStarter from '~/components/widgets/TestStarter';
 
 export default {
   components: {
+    LinkComposer,
     TestStarter
+  },
+
+  head() {
+    return {
+      title: 'Evaluate'
+    };
   }
 };
 </script>
@@ -18,6 +26,12 @@ export default {
       <h2>Take a Test</h2>
 
       <TestStarter/>
+    </section>
+
+    <section class="take-test">
+      <h2>Create a Test</h2>
+
+      <LinkComposer/>
     </section>
   </div>
 </template>
