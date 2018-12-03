@@ -5,7 +5,6 @@
     "parallell-await",
     "unique",
     "unnecessary-class",
-    "string-join",
     "unique-with-set"
   ]
 }

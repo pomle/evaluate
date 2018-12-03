@@ -1,14 +1,10 @@
-function wrapItems(items) {
-  let envelopes = [];
-  let counter = 0;
-  for (let item of items) {
-    let envelope = {
-      id: counter++,
-      item,
-    };
-    envelopes.push(envelope);
-  }
-  return envelopes;
-}
+# `const` vs `let`
 
-module.exports = wrapItems;
+## Statement
+
+Pick the solution that makes the most sense.
+
+
+## Rationale
+
+The good solution is preferred because it uses the `const` keyword for variables that are never reassigned, giving an explicit hint about how the code performs.
