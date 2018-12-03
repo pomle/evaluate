@@ -3,6 +3,9 @@
     "const-vs-let",
     "memoization",
     "parallell-await",
-    "unique"
+    "unique",
+    "unnecessary-class",
+    "string-join",
+    "unique-with-set"
   ]
 }
