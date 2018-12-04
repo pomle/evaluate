@@ -54,6 +54,7 @@ button.disabled {
   border: transparent;
   color: #555;
   cursor: default;
+  pointer-events: none;
 }
 
 h1 {

@@ -1,12 +1,60 @@
 <script>
 import { random } from '~/lib/random';
+import { copy } from 'microclip';
 
 export default {
   data() {
     return {
       resultId: random(12),
-      testRef: 'cae844ce-f487-11e8-8f10-1040f388afa6'
+      testRef: null
     };
+  },
+
+  computed: {
+    testLocation() {
+      const { testRef, resultId } = this;
+      const location = { name: 'test', query: { testRef, resultId } };
+      return location;
+    },
+
+    testURL() {
+      const url = this.$router.resolve(this.testLocation);
+      return this.buildURL(url.href);
+    },
+
+    resultLocation() {
+      const { resultId } = this;
+      const location = { name: 'result-resultId', params: { resultId } };
+      return location;
+    },
+
+    resultURL() {
+      const url = this.$router.resolve(this.resultLocation);
+      return this.buildURL(url.href);
+    }
+  },
+
+  mounted() {
+    const { testRef } = this.$route.query;
+    if (testRef) {
+      this.testRef = testRef;
+    }
+  },
+
+  methods: {
+    buildURL(path) {
+      const anchor = document.createElement('a');
+      anchor.href = path;
+      return anchor.href;
+    },
+
+    copyTestURL() {
+      copy(this.testURL);
+    },
+
+    copyResultURL() {
+      copy(this.resultURL);
+    }
   }
 };
 </script>
@@ -31,11 +79,38 @@ export default {
     </table>
 
     <div class="testLink">
-      <nuxt-link :to="{name: 'test', query: {testId: testRef, resultId}}">Test URL</nuxt-link>
+
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <input
+                :value="testURL"
+                type="readonly">
+            </td>
+            <td>
+              <button @click="copyTestURL">Copy</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="resultLink">
-      <nuxt-link :to="{name: 'result-resultId', params: {resultId}}">Result URL</nuxt-link>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <input
+                :value="resultURL"
+                type="readonly">
+            </td>
+            <td>
+              <button @click="copyResultURL">Copy</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>

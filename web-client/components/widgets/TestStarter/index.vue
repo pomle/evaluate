@@ -43,6 +43,7 @@ export default {
     </table>
 
     <button
+      :class="{disabled: !testRef}"
       class="primary"
       @click="start">Start</button>
   </div>
