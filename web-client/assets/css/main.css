@@ -56,6 +56,10 @@ button.disabled {
   cursor: default;
 }
 
+h1 {
+  font-size: 32px;
+}
+
 a {
   color: #c85782;
   font-weight: bold;

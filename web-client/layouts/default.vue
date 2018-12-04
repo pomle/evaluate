@@ -1,8 +1,14 @@
 <template>
-  <div>
+  <div class="default">
     <nuxt/>
   </div>
 </template>
 
-<style>
+<style lang="less">
+#__layout > .default {
+  section {
+    max-width: 1000px;
+    margin: 4em auto;
+  }
+}
 </style>

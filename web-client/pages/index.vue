@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-  <div class="intro-page">
+  <main>
     <section class="intro">
       <h1>Welcome to Evaluate</h1>
     </section>
@@ -33,7 +33,7 @@ export default {
 
       <LinkComposer/>
     </section>
-  </div>
+  </main>
 </template>
 
 <style lang="less">
