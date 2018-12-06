@@ -86,6 +86,5 @@ export const actions = {
 
     const resultId = session.resultId;
     await resultStorage.store(resultId, encode(session));
-    console.log(resultId);
   }
 };
