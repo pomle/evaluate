@@ -18,10 +18,6 @@ export default {
 
 <template>
   <main>
-    <section class="intro">
-      <h1>Welcome to Evaluate</h1>
-    </section>
-
     <section class="take-test">
       <h2>Take a Test</h2>
 
