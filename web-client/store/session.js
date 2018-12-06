@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import GitHubStorage from '../lib/storage/github';
 import KVDBStorage from '../lib/storage/kvdb.io';
 
@@ -13,6 +14,9 @@ function decode(raw) {
 }
 
 export const state = () => ({
+  meta: {
+    session: {}
+  },
   results: [],
   sessions: []
 });
@@ -33,6 +37,22 @@ export const mutations = {
     session.answers[questionId].answerId = answerId;
   },
 
+  setSessionMeta(state, { sessionId, meta = {} }) {
+    const sessionMeta = state.meta.session;
+    if (!sessionMeta[sessionId]) {
+      Vue.set(sessionMeta, sessionId, {
+        fetched: false,
+        fetching: false,
+        submitting: false,
+        submitted: false
+      });
+    }
+
+    for (const [key, value] of Object.entries(meta)) {
+      sessionMeta[sessionId][key] = value;
+    }
+  },
+
   setComment(state, { sessionId, questionId, comment }) {
     const session = state.sessions.find(
       session => session.sessionId === sessionId
@@ -43,6 +63,8 @@ export const mutations = {
 
 export const actions = {
   async loadTest({ commit }, { sessionId, testId, resultId }) {
+    commit('setSessionMeta', { sessionId, meta: { fetching: true } });
+
     const testPath = ['pomle/evaluate', 'tests', testId].join('/');
     const test = await testStorage.fetchBlob(testPath).then(decode);
 
@@ -62,6 +84,11 @@ export const actions = {
         test,
         answers
       }
+    });
+
+    commit('setSessionMeta', {
+      sessionId,
+      meta: { fetched: true, fetching: false }
     });
   },
 
@@ -84,7 +111,14 @@ export const actions = {
       throw new Error('Session missing result id');
     }
 
+    commit('setSessionMeta', { sessionId, meta: { submitting: true } });
+
     const resultId = session.resultId;
     await resultStorage.store(resultId, encode(session));
+
+    commit('setSessionMeta', {
+      sessionId,
+      meta: { submitting: false, submitted: true }
+    });
   }
 };
