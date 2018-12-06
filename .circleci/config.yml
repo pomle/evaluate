@@ -85,7 +85,7 @@ workflows:
               only:
                 - master
 
-      - deploy-web-client-heroku
+      - deploy-web-client-heroku:
           requires:
             - test-web-client
           filters:
