@@ -82,11 +82,11 @@ export default {
       <h1>Done!</h1>
 
       <p>
-        That was the last question. You have answered {{ questionsAnswered }} / {{ questionCount }} and provided a comment on {{ questionsCommented }} questions.
+        That was the last question. You have <b>answered {{ questionsAnswered }} / {{ questionCount }}</b> and provided a <b>comment on {{ questionsCommented }}</b> questions.
       </p>
 
       <p>
-        When you are ready, submit your answers below.
+        When you are ready, <b>submit your answers</b> below.
       </p>
 
       <button
