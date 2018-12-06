@@ -10,7 +10,7 @@ export default {
 
   head() {
     return {
-      title: 'Evaluate'
+      title: 'Just Evaluate',
     };
   }
 };
