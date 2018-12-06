@@ -135,6 +135,10 @@ export default {
     <Progress :value="progress"/>
 
     <div class="response">
+      <div class="statement">
+        {{question.statement}}
+      </div>
+
       <div class="question-container">
         <Question
           :session="session"
@@ -170,6 +174,12 @@ export default {
 
     .question-container {
       margin: 40px 0;
+    }
+
+    .statement {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0.2em;
     }
 
     .comment {
