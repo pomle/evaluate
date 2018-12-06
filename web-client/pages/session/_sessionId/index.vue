@@ -7,6 +7,12 @@ export default {
     }
   },
 
+  head() {
+    return {
+      title: 'Welcome - Just Evaluate'
+    };
+  },
+
   methods: {
     start() {
       this.goToQuestion(1);

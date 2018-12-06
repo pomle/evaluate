@@ -25,7 +25,7 @@ export default {
     const total = this.session.test.questions.length;
 
     return {
-      title: `${current} / ${total}`
+      title: `(${current} / ${total}) Question - Just Evaluate`
     };
   },
 
