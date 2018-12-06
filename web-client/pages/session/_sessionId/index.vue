@@ -27,7 +27,7 @@ export default {
 </script>
 
 <template>
-  <div class="start-page">
+  <div class="test-start-page">
     <main>
       <h1>Evaluate</h1>
 
@@ -39,3 +39,16 @@ export default {
     </main>
   </div>
 </template>
+
+<style lang="less">
+.test-start-page {
+  text-align: center;
+
+  h1 {
+    margin: 1em 0;
+  }
+
+  p {
+  }
+}
+</style>

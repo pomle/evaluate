@@ -2,8 +2,6 @@
 import Progress from '~/components/Progress';
 
 export default {
-  layout: 'test',
-
   components: {
     Progress
   },

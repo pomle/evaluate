@@ -67,6 +67,16 @@ a {
   text-decoration: none;
 }
 
+p {
+  color: #aaa;
+  line-height: 1.5;
+  margin: 1em 0;
+}
+
+b {
+  color: #fff;
+}
+
 *,
 *:before,
 *:after {
