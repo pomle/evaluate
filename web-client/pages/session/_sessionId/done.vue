@@ -13,6 +13,36 @@ export default {
     }
   },
 
+  computed: {
+    questionCount() {
+      return this.session.test.questions.length;
+    },
+
+    questionsAnswered() {
+      return Object.entries(this.session.answers).reduce(
+        (sum, [questionId, answer]) => {
+          if (answer.answerId) {
+            return sum + 1;
+          }
+          return sum;
+        },
+        0
+      );
+    },
+
+    questionsCommented() {
+      return Object.entries(this.session.answers).reduce(
+        (sum, [questionId, answer]) => {
+          if (answer.comment) {
+            return sum + 1;
+          }
+          return sum;
+        },
+        0
+      );
+    }
+  },
+
   methods: {
     prev() {
       const questions = this.session.test.questions;
@@ -49,7 +79,15 @@ export default {
     <Progress :value="1"/>
 
     <main class="confirm">
-      <h1>Thank you for taking the test!</h1>
+      <h1>Done!</h1>
+
+      <p>
+        That was the last question. You have answered {{ questionsAnswered }} / {{ questionCount }} and provided a comment on {{ questionsCommented }} questions.
+      </p>
+
+      <p>
+        When you are ready, submit your answers below.
+      </p>
 
       <button
         v-if="session.resultId"

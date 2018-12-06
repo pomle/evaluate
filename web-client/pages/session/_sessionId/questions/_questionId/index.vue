@@ -136,7 +136,7 @@ export default {
 
     <div class="response">
       <div class="statement">
-        {{question.statement}}
+        {{ question.statement }}
       </div>
 
       <div class="question-container">
