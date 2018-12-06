@@ -86,3 +86,9 @@ workflows:
                 - master
 
       - deploy-web-client-heroku
+          requires:
+            - test-web-client
+          filters:
+            branches:
+              only:
+                - master
