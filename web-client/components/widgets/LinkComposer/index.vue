@@ -1,6 +1,15 @@
 <script>
-import { random } from '~/lib/random';
 import { copy } from 'microclip';
+import { random } from '~/lib/random';
+
+function buildURL(path) {
+  if (global.document) {
+    const anchor = document.createElement('a');
+    anchor.href = path;
+    return anchor.href;
+  }
+  return path;
+}
 
 export default {
   data() {
@@ -42,11 +51,7 @@ export default {
   },
 
   methods: {
-    buildURL(path) {
-      const anchor = document.createElement('a');
-      anchor.href = path;
-      return anchor.href;
-    },
+    buildURL,
 
     copyTestURL() {
       copy(this.testURL);

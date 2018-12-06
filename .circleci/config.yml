@@ -51,6 +51,20 @@ jobs:
           working_directory: web-client
           command: APP_PATH=$CIRCLE_SHA1 REPOSITORY_URL=$CIRCLE_REPOSITORY_URL yarn run nuxt-deploy
 
+  deploy-web-client-heroku:
+    docker:
+      - image: circleci/node:8
+    environment:
+      GIT_COMMITTER_NAME: 'Evaluate Bot'
+      GIT_COMMITTER_EMAIL: 'no-reply@bot.x'
+      GIT_AUTHOR_NAME: 'Evaluate Bot'
+      GIT_AUTHOR_EMAIL: 'no-reply@bot.x'
+    steps:
+      - checkout
+      - run:
+          name: Deploy
+          command: BRANCH=heroku-deploy REPOSITORY_URL=$CIRCLE_REPOSITORY_URL .circleci/deploy-heroku.sh
+
 
 workflows:
   version: 2
@@ -64,6 +78,14 @@ workflows:
       - test-web-client
 
       - deploy-web-client:
+          requires:
+            - test-web-client
+          filters:
+            branches:
+              only:
+                - master
+
+      - deploy-web-client-heroku:
           requires:
             - test-web-client
           filters:
