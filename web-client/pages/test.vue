@@ -2,6 +2,8 @@
 import { random } from '~/lib/random';
 
 export default {
+  layout: 'busy',
+
   mounted() {
     const { testRef, resultId } = this.$route.query;
     if (!testRef || !resultId) {
@@ -29,9 +31,7 @@ export default {
 </script>
 
 <template>
-  <div class="test-bootstrap-page">
-    <section class="intro">
-      <h1>Please wait...</h1>
-    </section>
+  <div>
+    <h1>Please wait...</h1>
   </div>
 </template>
