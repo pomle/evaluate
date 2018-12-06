@@ -1,10 +1,18 @@
 <script>
+import logo from '~/assets/img/justarrived-logo.png';
+
 export default {
   props: {
     session: {
       type: Object,
       required: true
     }
+  },
+
+  data() {
+    return {
+      logo
+    };
   },
 
   head() {
@@ -35,26 +43,45 @@ export default {
 <template>
   <div class="test-start-page">
     <main>
-      <h1>Evaluate</h1>
+      <img 
+        :src="logo" 
+        class="logo">
 
-      <p>You will be presented <b>{{ session.test.questions.length }}</b> questions.</p>
+      <p>
+        You will be presented a test with <b>{{ session.test.questions.length }}</b> questions. Each test will ask you a question, let you pick an alternative, and let you motivate your answer. You can move forwards and backwards between the questions anytime you like.
+      </p>
 
-      <button
-        class="primary"
-        @click.prevent="start">Start</button>
+      <p>
+        After the last question you will be asked to <b>confirm that you want to submit your answer</b>.
+      </p>
+
+      <div class="start">
+        <button
+          class="primary"
+          @click.prevent="start">Start</button>
+      </div>
     </main>
   </div>
 </template>
 
 <style lang="less">
 .test-start-page {
-  text-align: center;
+  main {
+    margin: 0 auto;
+    max-width: 800px;
 
-  h1 {
-    margin: 1em 0;
-  }
+    .logo {
+      display: block;
+      margin: 2em auto;
+    }
 
-  p {
+    .start {
+      button {
+        display: block;
+        margin: 1em auto;
+        width: 15em;
+      }
+    }
   }
 }
 </style>
