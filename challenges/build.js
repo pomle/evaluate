@@ -46,4 +46,7 @@ for (const testName of config.tests) {
   output.questions.push(question);
 }
 
-process.stdout.write(JSON.stringify(output));
+const json = JSON.stringify(output);
+const encoded = Buffer.from(json).toString('base64');
+
+process.stdout.write(encoded);
