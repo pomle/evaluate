@@ -3,14 +3,15 @@ import { random } from '~/lib/random';
 
 export default {
   mounted() {
-    const { testId, resultId } = this.$route.query;
-    if (!testId || !resultId) {
+    const { testRef, resultId } = this.$route.query;
+    if (!testRef || !resultId) {
       this.$router.replace({
         name: 'index'
       });
       return;
     }
 
+    const testId = testRef;
     const sessionId = random(12);
 
     this.$store.dispatch('session/loadTest', {
