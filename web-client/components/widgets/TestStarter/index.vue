@@ -38,14 +38,15 @@ export default {
           <td>
             <input v-model="testRef">
           </td>
+          <td>
+            <button
+              :class="{disabled: !testRef}"
+              class="primary"
+              @click="start">Start</button>
+          </td>
         </tr>
       </tbody>
     </table>
-
-    <button
-      :class="{disabled: !testRef}"
-      class="primary"
-      @click="start">Start</button>
   </div>
 </template>
 

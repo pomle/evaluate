@@ -83,11 +83,13 @@ export default {
       </tbody>
     </table>
 
-    <div class="testLink">
-
+    <div class="links">
       <table>
         <tbody>
           <tr>
+            <th>
+              Test Link
+            </th>
             <td>
               <input
                 :value="testURL"
@@ -97,14 +99,10 @@ export default {
               <button @click="copyTestURL">Copy</button>
             </td>
           </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="resultLink">
-      <table>
-        <tbody>
           <tr>
+            <th>
+              Result Link
+            </th>
             <td>
               <input
                 :value="resultURL"
@@ -121,4 +119,15 @@ export default {
 </template>
 
 <style lang="less">
+.link-page {
+  .links {
+    table {
+      width: 100%;
+
+      input {
+        width: 500px;
+      }
+    }
+  }
+}
 </style>
