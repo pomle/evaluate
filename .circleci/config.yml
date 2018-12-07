@@ -18,6 +18,25 @@ jobs:
           working_directory: challenges/javascript
           command: yarn test --verbose
 
+  deploy-challenges:
+    docker:
+      - image: circleci/node:8
+    environment:
+      GIT_COMMITTER_NAME: 'Evaluate Bot'
+      GIT_COMMITTER_EMAIL: 'no-reply@bot.x'
+      GIT_AUTHOR_NAME: 'Evaluate Bot'
+      GIT_AUTHOR_EMAIL: 'no-reply@bot.x'
+    steps:
+      - checkout
+      - run:
+          name: Install
+          working_directory: challenges
+          command: yarn install
+      - run:
+          name: Deploy
+          command: .circleci/deploy-challenges.sh
+
+
   test-web-client:
     docker:
       - image: circleci/node:8
@@ -71,6 +90,14 @@ workflows:
   test-flow:
     jobs:
       - test-challenges
+      - deploy-challenges:
+          requires:
+            - test-challenges
+          filters:
+            branches:
+              only:
+                - master
+
       - test-web-client
 
   deploy-flow:
