@@ -30,5 +30,6 @@ export default {
 <template>
   <nuxt-child
     v-if="session"
-    :session="session"/>
+    :session="session"
+    :meta="meta" />
 </template>
