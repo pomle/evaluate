@@ -8,6 +8,29 @@ export default {
       return this.$store.state.session.sessions.find(
         session => session.sessionId === sessionId
       );
+    },
+
+    meta() {
+      const { sessionId } = this.$route.params;
+      return this.$store.state.session.meta.session[sessionId];
+    },
+  },
+
+  watch: {
+    meta(next) {
+      debugger;
+      if (next.submitted) {
+        this.$router.replace({name: 'session-thanks'});
+      }
+    }
+  },
+
+  mounted() {
+    const { sessionId } = this.$route.params;
+    const sessionMeta = this.$store.state.session.meta.session[sessionId];
+    if (!sessionMeta) {
+      this.$router.replace({name: 'index'});
+      return;
     }
   }
 };
