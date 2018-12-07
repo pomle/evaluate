@@ -93,10 +93,6 @@ workflows:
       - deploy-challenges:
           requires:
             - test-challenges
-          filters:
-            branches:
-              only:
-                - master
 
       - test-web-client
 
