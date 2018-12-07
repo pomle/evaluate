@@ -84,7 +84,7 @@ export default {
     <Progress :value="1"/>
 
     <div class="confirm">
-      <transition v-if="!meta.submitted">
+      <div v-if="!meta.submitted">
         <h1>Done!</h1>
 
         <p>
@@ -109,14 +109,14 @@ export default {
             <button class="disabled">Next</button>
           </div>
         </nav>
-      </transition>
-      <transition v-else>
+      </div>
+      <div v-else>
         <h1>Thank you!</h1>
 
         <p>
           That's all. We hope you enjoyed doing the test.
         </p>
-      </transition>
+      </div>
     </div>
   </div>
 </template>
