@@ -28,10 +28,10 @@ export default {
   margin: 0 auto;
 
   .logo {
-    img {
-      display: block;
-      margin: 50px auto;
-    }
+    margin: 50px auto;
+    overflow: hidden;
+    height: 85px;
+    width: 75px;
   }
 
   .content {
