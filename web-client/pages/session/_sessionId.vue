@@ -13,15 +13,6 @@ export default {
     meta() {
       const { sessionId } = this.$route.params;
       return this.$store.state.session.meta.session[sessionId];
-    },
-  },
-
-  watch: {
-    meta(next) {
-      debugger;
-      if (next.submitted) {
-        this.$router.replace({name: 'session-thanks'});
-      }
     }
   },
 
