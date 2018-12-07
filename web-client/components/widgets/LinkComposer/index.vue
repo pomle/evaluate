@@ -40,6 +40,16 @@ export default {
     resultURL() {
       const url = this.$router.resolve(this.resultLocation);
       return this.buildURL(url.href);
+    },
+
+    isComplete() {
+      if (!this.testRef) {
+        return false;
+      }
+      if (!this.resultId) {
+        return false;
+      }
+      return true;
     }
   },
 
@@ -92,11 +102,13 @@ export default {
             </th>
             <td>
               <input
-                :value="testURL"
+                :value="isComplete ? testURL : ''"
                 type="readonly">
             </td>
             <td>
-              <button @click="copyTestURL">Copy</button>
+              <button
+                :class="{disabled: !isComplete}"
+                @click="copyTestURL">Copy</button>
             </td>
           </tr>
           <tr>
@@ -105,11 +117,13 @@ export default {
             </th>
             <td>
               <input
-                :value="resultURL"
+                :value="isComplete ? resultURL : ''"
                 type="readonly">
             </td>
             <td>
-              <button @click="copyResultURL">Copy</button>
+              <button
+                :class="{disabled: !isComplete}"
+                @click="copyResultURL">Copy</button>
             </td>
           </tr>
         </tbody>
