@@ -90,10 +90,6 @@ workflows:
   test-flow:
     jobs:
       - test-challenges
-      - deploy-challenges:
-          requires:
-            - test-challenges
-
       - test-web-client
 
   deploy-flow:
@@ -115,3 +111,9 @@ workflows:
             branches:
               only:
                 - master
+
+      - test-challenges
+      - deploy-challenges:
+          requires:
+            - test-challenges
+
