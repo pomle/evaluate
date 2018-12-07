@@ -3,7 +3,10 @@ function createFibonacci() {
 
   return function fibonacci(n) {
     if (!memo.has(n)) {
-      memo.set(n, fibonacci(n - 1) + fibonacci(n - 2));
+      memo.set(
+        n,
+        fibonacci(n - 1) + fibonacci(n - 2)
+      );
     }
     return memo.get(n);
   };

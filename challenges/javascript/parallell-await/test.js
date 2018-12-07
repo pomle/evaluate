@@ -19,6 +19,7 @@ describe('Parallell promises', () => {
 
   ['good', 'bad'].forEach(source => {
     const fn = require('./' + source);
-    describe(`${source} solution`, () => createTest(fn));
+    describe(`${source} solution`, () =>
+      createTest(fn));
   });
 });

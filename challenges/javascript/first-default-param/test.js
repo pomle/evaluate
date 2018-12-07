@@ -4,7 +4,10 @@ describe('Default param first', () => {
 
     it('has required argument first', () => {
       const person = createPerson('8306085442');
-      expect(person).toEqual({ id: '8306085442', name: 'Jane Doe' });
+      expect(person).toEqual({
+        id: '8306085442',
+        name: 'Jane Doe',
+      });
     });
   });
 
@@ -12,8 +15,14 @@ describe('Default param first', () => {
     const createPerson = require('./bad');
 
     it('has required argument last', () => {
-      const person = createPerson(undefined, '8306085442');
-      expect(person).toEqual({ id: '8306085442', name: 'Jane Doe' });
+      const person = createPerson(
+        undefined,
+        '8306085442'
+      );
+      expect(person).toEqual({
+        id: '8306085442',
+        name: 'Jane Doe',
+      });
     });
   });
 });

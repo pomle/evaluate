@@ -11,13 +11,16 @@ describe('Unnecessary array map', () => {
       ];
       runUpdate(entities);
       entities.forEach(entity => {
-        expect(entity.update).toHaveBeenCalledTimes(1);
+        expect(entity.update).toHaveBeenCalledTimes(
+          1
+        );
       });
     });
   }
 
   ['good', 'bad'].forEach(source => {
     const fn = require('./' + source);
-    describe(`${source} solution`, () => createTest(fn));
+    describe(`${source} solution`, () =>
+      createTest(fn));
   });
 });
