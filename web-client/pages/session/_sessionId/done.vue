@@ -18,6 +18,12 @@ export default {
     }
   },
 
+  head() {
+    return {
+      title: 'Done - Just Evaluate'
+    };
+  },
+
   computed: {
     questionCount() {
       return this.session.test.questions.length;
