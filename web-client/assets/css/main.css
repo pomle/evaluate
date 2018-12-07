@@ -49,6 +49,10 @@ button.primary {
   background: #c85782;
 }
 
+button:active:hover {
+  background: #c85782;
+}
+
 button.disabled {
   background: #222;
   border-color: transparent;
