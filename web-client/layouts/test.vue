@@ -9,7 +9,7 @@
   display: flex;
   flex-flow: column;
   margin: auto;
-  width: 1000px;
+  max-width: 1200px;
 
   .progress {
     position: fixed;

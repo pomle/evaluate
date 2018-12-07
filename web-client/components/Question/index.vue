@@ -68,6 +68,7 @@ export default {
 
   .options {
     display: flex;
+    flex-flow: row wrap;
     margin: -0.5em;
     width: 100%;
 
