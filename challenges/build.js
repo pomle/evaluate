@@ -1,9 +1,10 @@
+#! /usr/bin/env node
 const uuidv4 = require('uuid/v4');
 const path = require('path');
 const fs = require('fs');
 const {markdown} = require('markdown');
 
-const DIR = "javascript";
+const DIR = process.argv[2];
 const configPath = path.resolve(path.join('.', DIR, 'config.json'));
 const config = require(configPath);
 
