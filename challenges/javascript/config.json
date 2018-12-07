@@ -1,9 +1,13 @@
 {
   "tests": [
     "const-vs-let",
+    "functional-add-password",
     "memoization",
+    "no-reimplementation-of-promise-all",
+    "first-default-param",
     "parallell-await",
     "unique",
+    "unnecessary-array-map",
     "unnecessary-class",
     "unique-with-set"
   ]
