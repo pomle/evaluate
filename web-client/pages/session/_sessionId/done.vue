@@ -7,6 +7,11 @@ export default {
   },
 
   props: {
+    meta: {
+      type: Object,
+      required: true
+    },
+
     session: {
       type: Object,
       required: true
@@ -78,32 +83,41 @@ export default {
   <div class="done-page">
     <Progress :value="1"/>
 
-    <main class="confirm">
-      <h1>Done!</h1>
+    <div class="confirm">
+      <transition v-if="!meta.submitted">
+        <h1>Done!</h1>
 
-      <p>
-        That was the last question. You have <b>answered {{ questionsAnswered }} / {{ questionCount }}</b> and provided a <b>comment on {{ questionsCommented }}</b> questions.
-      </p>
+        <p>
+          That was the last question. You have <b>answered {{ questionsAnswered }} / {{ questionCount }}</b> and provided a <b>comment on {{ questionsCommented }}</b> questions.
+        </p>
 
-      <p>
-        When you are ready, <b>submit your answers</b> below.
-      </p>
+        <p>
+          When you are ready, <b>submit your answers</b> below.
+        </p>
 
-      <button
-        v-if="session.resultId"
-        class="primary"
-        @click="submit">Submit</button>
-    </main>
-
-    <nav>
-      <div class="prev">
         <button
-          @click.prevent="prev">Prev</button>
-      </div>
-      <div class="next">
-        <button class="disabled">Next</button>
-      </div>
-    </nav>
+          :class="{disabled: meta.submitting}"
+          class="primary"
+          @click="submit">Submit</button>
+
+        <nav>
+          <div class="prev">
+            <button
+              @click.prevent="prev">Prev</button>
+          </div>
+          <div class="next">
+            <button class="disabled">Next</button>
+          </div>
+        </nav>
+      </transition>
+      <transition v-else>
+        <h1>Thank you!</h1>
+
+        <p>
+          That's all. We hope you enjoyed doing the test.
+        </p>
+      </transition>
+    </div>
   </div>
 </template>
 
