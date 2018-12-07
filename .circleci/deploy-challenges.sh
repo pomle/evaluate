@@ -9,7 +9,7 @@ fi
 
 cd challenges
 yarn
-./build-all
+./build-all.sh
 
 cd -
 cp -R challenges/build/* $WORKDIR/
