@@ -29,7 +29,11 @@ export default {
           :question="question"/>
 
         <div class="comment">
-          Comment {{ result.session.answers[question.id].comment }}
+          <h3>Comment</h3>
+
+          <p>
+            {{ result.session.answers[question.id].comment }}
+          </p>
         </div>
       </div>
     </div>
