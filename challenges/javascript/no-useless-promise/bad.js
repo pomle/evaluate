@@ -1,11 +1,9 @@
-function performUserSearch(api, user, query) {
+function performUserSearch(api, user, text) {
   return new Promise(resolve => {
-    const searchString = `user:${
-      user.id
-    },query:${query}`;
-    api.search(searchString).then(result => {
+    const query = `user:${user.id},query:${text}`;
+    api.search(query).then(result => {
       resolve({
-        resultFor: searchString,
+        resultFor: query,
         result,
       });
     });

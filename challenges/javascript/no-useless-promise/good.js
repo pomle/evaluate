@@ -1,10 +1,8 @@
-function performUserSearch(api, user, query) {
-  const searchString = `user:${
-    user.id
-  },query:${query}`;
-  return api.search(searchString).then(result => {
+function performUserSearch(api, user, text) {
+  const query = `user:${user.id},query:${text}`;
+  return api.search(query).then(result => {
     return {
-      resultFor: searchString,
+      resultFor: query,
       result,
     };
   });
