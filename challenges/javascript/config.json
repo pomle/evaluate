@@ -8,6 +8,7 @@
     "parallell-await",
     "unique",
     "unnecessary-array-map",
+    "no-useless-promise",
     "unnecessary-class",
     "unique-with-set"
   ]
