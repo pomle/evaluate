@@ -1,14 +1,9 @@
-function wrapItems(items) {
-  const envelopes = [];
-  let counter = 0;
-  for (const item of items) {
-    const envelope = {
-      id: counter++,
-      item,
-    };
-    envelopes.push(envelope);
+function increment(numbers) {
+  const results = [];
+  for (const number of numbers) {
+    results.push(number + 1);
   }
-  return envelopes;
+  return results;
 }
 
-module.exports = wrapItems;
+module.exports = increment;
