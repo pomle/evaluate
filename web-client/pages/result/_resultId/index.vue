@@ -36,6 +36,14 @@ export default {
     }
   },
 
+  head() {
+    const { resultId } = this.result;
+
+    return {
+      title: `Result ${resultId}`
+    };
+  },
+
   methods: {
     isCorrect(question) {
       return (
