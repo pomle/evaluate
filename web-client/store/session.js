@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { sort } from '../lib/random';
 import GitHubStorage from '../lib/storage/github';
 import KVDBStorage from '../lib/storage/kvdb.io';
 
@@ -67,6 +68,8 @@ export const actions = {
 
     const testPath = ['pomle/evaluate', 'tests', testId].join('/');
     const test = await testStorage.fetchBlob(testPath).then(decode);
+
+    test.questions = sort(test.questions, parseInt(resultId, 36));
 
     const answers = test.questions.reduce((answers, question) => {
       answers[question.id] = {
