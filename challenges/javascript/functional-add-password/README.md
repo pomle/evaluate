@@ -2,7 +2,7 @@
 
 ## Statement
 
-Pick the solution that conforms to a Functional programming paradigm.
+Pick the solution that conforms to a Functional Programming paradigm.
 
 ## Rationale
 
