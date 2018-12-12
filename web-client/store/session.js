@@ -13,6 +13,11 @@ const storeSession = debounce(session => {
   localStorage.store(session.sessionId, session);
 }, 2500);
 
+function loadTest(name) {
+  const testPath = ['pomle/evaluate', 'tests', name].join('/');
+  return testStorage.fetchBlob(testPath).then(decode);
+}
+
 function encode(data) {
   return btoa(JSON.stringify(data));
 }
@@ -67,8 +72,7 @@ export const actions = {
   async loadTest({ commit }, { sessionId, testId, resultId }) {
     commit('setSessionMeta', { sessionId, meta: { fetching: true } });
 
-    const testPath = ['pomle/evaluate', 'tests', testId].join('/');
-    const test = await testStorage.fetchBlob(testPath).then(decode);
+    const test = await loadTest(testId);
 
     test.questions = sort(test.questions, parseInt(resultId, 36));
 
@@ -100,11 +104,15 @@ export const actions = {
 
   async loadResult({ commit }, { resultId }) {
     const session = await resultStorage.fetch(resultId).then(decode);
+    const solution = await loadTest(`${session.testId}.solution`).catch(
+      () => null
+    );
 
     commit('addResult', {
       result: {
         resultId,
-        session
+        session,
+        solution
       }
     });
   },
