@@ -18,8 +18,7 @@ export default {
     const { sessionId } = this.$route.params;
     const sessionMeta = this.$store.state.session.meta.session[sessionId];
     if (!sessionMeta) {
-      this.$router.replace({ name: 'index' });
-      return;
+      this.$store.dispatch('session/restoreSession', { sessionId });
     }
   }
 };
