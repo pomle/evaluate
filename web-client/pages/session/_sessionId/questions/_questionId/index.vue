@@ -30,9 +30,17 @@ export default {
   },
 
   computed: {
+    answer() {
+      return this.session.answers[this.question.id];
+    },
+
+    canProceed() {
+      return this.answer.answerId && this.answer.comment;
+    },
+
     comment: {
       get() {
-        return this.session.answers[this.question.id].comment;
+        return this.answer.comment;
       },
 
       set(comment) {
@@ -160,6 +168,7 @@ export default {
       </div>
       <div class="next">
         <button
+          :class="{disabled: !canProceed}"
           class="primary"
           @click.prevent="next">Next</button>
       </div>
