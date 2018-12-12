@@ -1,6 +1,6 @@
 function uniqify(numbers) {
   const unique = [];
-  const mem = Object.create(null);
+  const mem = {};
   for (const number of numbers) {
     if (!mem[number]) {
       unique.push(number);
