@@ -10,7 +10,6 @@
     "unnecessary-array-map",
     "no-useless-promise",
     "unnecessary-class",
-    "no-await-in-loop",
-    "unique-with-set"
+    "no-await-in-loop"
   ]
 }
