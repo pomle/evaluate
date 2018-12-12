@@ -8,6 +8,7 @@
     "unique",
     "unnecessary-array-map",
     "no-useless-promise",
+    "recursion-callstack",
     "unnecessary-class",
     "no-await-in-loop"
   ]
