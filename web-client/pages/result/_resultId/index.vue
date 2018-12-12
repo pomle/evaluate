@@ -63,17 +63,23 @@ export default {
           [isCorrect(question) ? 'right' : 'wrong']
         "
         class="result">
-        <Question
-          :session="result.session"
-          :question="question"/>
+        <div class="statement">
+          <h3>Statement</h3>
+
+          <p>{{ question.statement }}</p>
+        </div>
 
         <div class="comment">
           <h3>Comment</h3>
 
           <p>
-            {{ answers[question.id].comment }}
+            {{ answers[question.id].comment || "Not Provided" }}
           </p>
         </div>
+
+        <Question
+          :session="result.session"
+          :question="question"/>
       </div>
     </div>
   </div>
