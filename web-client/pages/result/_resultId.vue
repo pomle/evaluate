@@ -5,9 +5,7 @@ export default {
   computed: {
     result() {
       const { resultId } = this.$route.params;
-      return this.$store.state.session.results.find(
-        result => result.resultId === resultId
-      );
+      return this.$store.state.session.results[resultId];
     }
   },
 

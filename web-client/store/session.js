@@ -18,7 +18,7 @@ export const state = () => ({
   meta: {
     session: {}
   },
-  results: [],
+  results: {},
   sessions: {}
 });
 
@@ -28,7 +28,7 @@ export const mutations = {
   },
 
   addResult(state, { result }) {
-    state.results.push(result);
+    Vue.set(state.results, result.resultId, result);
   },
 
   setAnswer(state, { sessionId, questionId, answerId }) {
