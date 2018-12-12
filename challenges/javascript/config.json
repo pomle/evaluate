@@ -5,6 +5,7 @@
     "memoization",
     "first-default-param",
     "parallell-await",
+    "no-side-effect-in-constructor",
     "unique",
     "unnecessary-array-map",
     "no-useless-promise",
