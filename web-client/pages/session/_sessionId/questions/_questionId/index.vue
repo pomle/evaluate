@@ -37,7 +37,7 @@ export default {
 
       set(comment) {
         const { sessionId } = this.session;
-        this.$store.commit('session/setComment', {
+        this.$store.dispatch('session/setComment', {
           sessionId,
           questionId: this.question.id,
           comment
@@ -120,7 +120,7 @@ export default {
 
     setAnswer({ questionId, answerId }) {
       const { sessionId } = this.session;
-      this.$store.commit('session/setAnswer', {
+      this.$store.dispatch('session/setAnswer', {
         sessionId,
         questionId,
         answerId

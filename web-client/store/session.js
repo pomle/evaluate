@@ -1,10 +1,17 @@
 import Vue from 'vue';
+import { debounce } from 'debounce';
 import { sort } from '../lib/random';
+import LocalStorage from '../lib/storage/local';
 import GitHubStorage from '../lib/storage/github';
 import KVDBStorage from '../lib/storage/kvdb.io';
 
+const localStorage = new LocalStorage('sessions');
 const testStorage = new GitHubStorage();
 const resultStorage = new KVDBStorage();
+
+const storeSession = debounce(session => {
+  localStorage.store(session.sessionId, session);
+}, 2500);
 
 function encode(data) {
   return btoa(JSON.stringify(data));
@@ -31,10 +38,6 @@ export const mutations = {
     Vue.set(state.results, result.resultId, result);
   },
 
-  setAnswer(state, { sessionId, questionId, answerId }) {
-    state.sessions[sessionId].answers[questionId].answerId = answerId;
-  },
-
   setSessionMeta(state, { sessionId, meta = {} }) {
     const sessionMeta = state.meta.session;
     if (!sessionMeta[sessionId]) {
@@ -51,8 +54,12 @@ export const mutations = {
     }
   },
 
-  setComment(state, { sessionId, questionId, comment }) {
-    state.sessions[sessionId].answers[questionId].comment = comment;
+  updateAnswer(state, { session, questionId, answerId }) {
+    session.answers[questionId].answerId = answerId;
+  },
+
+  updateComment(state, { session, questionId, comment }) {
+    session.answers[questionId].comment = comment;
   }
 };
 
@@ -73,20 +80,22 @@ export const actions = {
       return answers;
     }, Object.create(null));
 
-    commit('addSession', {
-      session: {
-        sessionId,
-        resultId,
-        testId,
-        test,
-        answers
-      }
-    });
+    const session = {
+      sessionId,
+      resultId,
+      testId,
+      test,
+      answers
+    };
+
+    commit('addSession', { session });
 
     commit('setSessionMeta', {
       sessionId,
       meta: { fetched: true, fetching: false }
     });
+
+    storeSession(session);
   },
 
   async loadResult({ commit }, { resultId }) {
@@ -97,6 +106,20 @@ export const actions = {
         resultId,
         session
       }
+    });
+  },
+
+  restoreSession({ commit }, { sessionId }) {
+    const session = localStorage.fetch(sessionId);
+    if (!session) {
+      return;
+    }
+
+    commit('addSession', { session });
+
+    commit('setSessionMeta', {
+      sessionId,
+      meta: { fetched: true, fetching: false }
     });
   },
 
@@ -115,5 +138,17 @@ export const actions = {
       sessionId,
       meta: { submitting: false, submitted: true }
     });
+  },
+
+  setAnswer({ state, commit }, { sessionId, questionId, answerId }) {
+    const session = state.sessions[sessionId];
+    commit('updateAnswer', { session, questionId, answerId });
+    storeSession(session);
+  },
+
+  setComment({ state, commit }, { sessionId, questionId, comment }) {
+    const session = state.sessions[sessionId];
+    commit('updateComment', { session, questionId, comment });
+    storeSession(session);
   }
 };
