@@ -1,13 +1,13 @@
 <script>
 export default {
-  computed: {
-    session() {
-      const { sessionId } = this.$route.params;
-      return this.$store.state.session.sessions.find(
-        session => session.sessionId === sessionId
-      );
-    },
+  props: {
+    session: {
+      type: Object,
+      required: true
+    }
+  },
 
+  computed: {
     question() {
       const { questionId } = this.$route.params;
       return this.session.test.questions[questionId - 1];
