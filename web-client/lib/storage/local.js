@@ -1,7 +1,8 @@
+const backend = process.client ? window.localStorage : null;
+
 class LocalPersistentStorage {
   constructor(namespace) {
     this.ns = namespace;
-    this.backend = window.localStorage;
   }
 
   key(key) {
@@ -9,7 +10,7 @@ class LocalPersistentStorage {
   }
 
   fetch(key) {
-    const blob = this.backend.getItem(this.key(key));
+    const blob = backend.getItem(this.key(key));
     if (!blob) {
       return null;
     }
@@ -18,7 +19,7 @@ class LocalPersistentStorage {
 
   store(key, data) {
     const blob = JSON.stringify(data);
-    this.backend.setItem(this.key(key), blob);
+    backend.setItem(this.key(key), blob);
   }
 }
 
