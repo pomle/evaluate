@@ -1,22 +1,8 @@
 describe('const vs let', () => {
   function createTest(fn) {
-    it('wraps all items in a numbered envelope', () => {
-      const items = [
-        {
-          name: 'Bob',
-        },
-        {
-          name: 'Carl',
-        },
-        {
-          name: 'Julie',
-        },
-      ];
-      expect(fn(items)).toEqual([
-        { id: 0, item: { name: 'Bob' } },
-        { id: 1, item: { name: 'Carl' } },
-        { id: 2, item: { name: 'Julie' } },
-      ]);
+    it('returns new array with all numbers incremented', () => {
+      const numbers = [1, 2, 3, 4];
+      expect(fn(numbers)).toEqual([2, 3, 4, 5]);
     });
   }
 
