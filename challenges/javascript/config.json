@@ -3,7 +3,6 @@
     "const-vs-let",
     "functional-add-password",
     "memoization",
-    "no-reimplementation-of-promise-all",
     "first-default-param",
     "parallell-await",
     "unique",
