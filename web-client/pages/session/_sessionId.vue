@@ -5,9 +5,7 @@ export default {
   computed: {
     session() {
       const { sessionId } = this.$route.params;
-      return this.$store.state.session.sessions.find(
-        session => session.sessionId === sessionId
-      );
+      return this.$store.state.session.sessions[sessionId];
     },
 
     meta() {

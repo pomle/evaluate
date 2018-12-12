@@ -19,12 +19,12 @@ export const state = () => ({
     session: {}
   },
   results: [],
-  sessions: []
+  sessions: {}
 });
 
 export const mutations = {
   addSession(state, { session }) {
-    state.sessions.push(session);
+    Vue.set(state.sessions, session.sessionId, session);
   },
 
   addResult(state, { result }) {
@@ -32,10 +32,7 @@ export const mutations = {
   },
 
   setAnswer(state, { sessionId, questionId, answerId }) {
-    const session = state.sessions.find(
-      session => session.sessionId === sessionId
-    );
-    session.answers[questionId].answerId = answerId;
+    state.sessions[sessionId].answers[questionId].answerId = answerId;
   },
 
   setSessionMeta(state, { sessionId, meta = {} }) {
@@ -55,10 +52,7 @@ export const mutations = {
   },
 
   setComment(state, { sessionId, questionId, comment }) {
-    const session = state.sessions.find(
-      session => session.sessionId === sessionId
-    );
-    session.answers[questionId].comment = comment;
+    state.sessions[sessionId].answers[questionId].comment = comment;
   }
 };
 
@@ -107,9 +101,7 @@ export const actions = {
   },
 
   async saveResult({ state, commit }, { sessionId }) {
-    const session = state.sessions.find(
-      session => session.sessionId === sessionId
-    );
+    const session = state.sessions[sessionId];
     if (!session.resultId) {
       throw new Error('Session missing result id');
     }
