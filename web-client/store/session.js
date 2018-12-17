@@ -69,7 +69,7 @@ export const mutations = {
 };
 
 export const actions = {
-  async loadTest({ commit }, { sessionId, testId, resultId }) {
+  async loadTest({ commit }, { sessionId, testId, resultId, label }) {
     commit('setSessionMeta', { sessionId, meta: { fetching: true } });
 
     const test = await loadTest(testId);
@@ -88,6 +88,7 @@ export const actions = {
       sessionId,
       resultId,
       testId,
+      label,
       test,
       answers
     };

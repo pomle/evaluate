@@ -1,25 +1,27 @@
 <script>
 import { random } from '~/lib/random';
+import { decodeReference } from '~/lib/transcode';
 
 export default {
   layout: 'busy',
 
   mounted() {
-    const { testRef, resultId } = this.$route.query;
-    if (!testRef || !resultId) {
+    const { ref } = this.$route.params;
+    if (!ref) {
       this.$router.replace({
         name: 'index'
       });
       return;
     }
 
-    const testId = testRef;
+    const { testId, resultId, label } = decodeReference(ref);
     const sessionId = random(12);
 
     this.$store.dispatch('session/loadTest', {
       sessionId,
       testId,
-      resultId
+      resultId,
+      label
     });
 
     this.$router.replace({

@@ -1,6 +1,7 @@
 <script>
 import { copy } from 'microclip';
 import { random } from '~/lib/random';
+import { encodeReference } from '~/lib/transcode';
 
 function buildURL(path) {
   if (global.document) {
@@ -15,14 +16,16 @@ export default {
   data() {
     return {
       resultId: random(12),
-      testRef: null
+      testRef: null,
+      label: null
     };
   },
 
   computed: {
     testLocation() {
-      const { testRef, resultId } = this;
-      const location = { name: 'test', query: { testRef, resultId } };
+      const { testRef, resultId, label } = this;
+      const ref = encodeReference(testRef, resultId, label);
+      const location = { name: 'test-ref', params: { ref } };
       return location;
     },
 
@@ -85,9 +88,9 @@ export default {
           </td>
         </tr>
         <tr>
-          <th>Result Id</th>
+          <th>Label</th>
           <td>
-            <input v-model="resultId">
+            <input v-model="label">
           </td>
         </tr>
       </tbody>
