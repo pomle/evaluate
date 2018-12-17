@@ -38,10 +38,5 @@
     "less-loader": "^4.1.0",
     "nodemon": "^1.11.0",
     "prettier": "1.14.3"
-  },
-  "babel": {
-    "presets": [
-      "env"
-    ]
   }
 }
