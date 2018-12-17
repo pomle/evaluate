@@ -10,7 +10,6 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "test": "jest",
     "precommit": "npm run lint",
     "heroku-postbuild": "npm run build"
   },
@@ -25,14 +24,11 @@
   "devDependencies": {
     "@pomle/nuxt-deploy": "^0.2.0",
     "babel-eslint": "^8.2.1",
-    "babel-jest": "^23.6.0",
-    "babel-preset-env": "^1.7.0",
     "eslint": "^5.0.1",
     "eslint-config-prettier": "^3.1.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-vue": "^4.0.0",
-    "jest": "^23.6.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "nodemon": "^1.11.0",
