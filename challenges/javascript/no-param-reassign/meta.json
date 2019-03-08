@@ -1,0 +1,13 @@
+{
+    "statement": "Pick the most maintainable solution.",
+    "options": [
+        {
+            "src": "bad.js",
+            "correct": false
+        },
+        {
+            "src": "good.js",
+            "correct": true
+        }
+    ]
+}

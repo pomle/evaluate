@@ -1,0 +1,13 @@
+{
+    "statement": "Pick the best working solution.",
+    "options": [
+        {
+            "src": "bad.js",
+            "correct": false
+        },
+        {
+            "src": "good.js",
+            "correct": true
+        }
+    ]
+}

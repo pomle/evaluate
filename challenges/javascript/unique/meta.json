@@ -1,0 +1,13 @@
+{
+    "statement": "Pick the solution that scales best.",
+    "options": [
+        {
+            "src": "bad.js",
+            "correct": false
+        },
+        {
+            "src": "good.js",
+            "correct": true
+        }
+    ]
+}

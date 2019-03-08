@@ -1,0 +1,13 @@
+{
+    "statement": "Pick the simplest solution that returns a new array with only unique items in it.",
+    "options": [
+        {
+            "src": "bad.js",
+            "correct": false
+        },
+        {
+            "src": "good.js",
+            "correct": true
+        }
+    ]
+}

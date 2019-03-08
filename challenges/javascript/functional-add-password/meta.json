@@ -1,0 +1,13 @@
+{
+    "statement": "Pick the solution that conforms to a Functional Programming paradigm.",
+    "options": [
+        {
+            "src": "bad.js",
+            "correct": false
+        },
+        {
+            "src": "good.js",
+            "correct": true
+        }
+    ]
+}

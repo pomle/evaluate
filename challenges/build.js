@@ -31,34 +31,30 @@ function loadSnippet(path) {
   };
 }
 
-function parseStatement(markdown) {
-  const statementIndex = markdown.findIndex(block => block[2] === 'Statement');
-  if (statementIndex === -1) {
-    return null;
-  }
-  return markdown[statementIndex + 1][1];
+function parseStatement(meta) {
+  return meta.statement;
 }
 
 for (const testName of config.tests) {
   const testPath = path.resolve(path.join('.', DIR, testName));
-  const goodPath = path.join(testPath, 'good.js');
-  const badPath = path.join(testPath, 'bad.js');
-  const docPath = path.join(testPath, 'README.md');
-  const doc = markdown.parse(fs.readFileSync(docPath, 'utf8'));
+  const metaPath = path.join(testPath, 'meta.json');
+  const meta = require(metaPath);
 
-  const correct = loadSnippet(goodPath);
-  const wrong = loadSnippet(badPath);
+  const options = meta.options.map(option => {
+    const srcPath = path.join(testPath, option.src);
+    return {
+      correct: option.correct,
+      answer: loadSnippet(srcPath),
+    };
+  });
 
   const question = {
     id: uuidv4(),
-    statement: parseStatement(doc),
-    answers: [
-      correct,
-      wrong,
-    ],
+    statement: parseStatement(meta),
+    answers: options.map(option => option.answer),
   };
 
-  solution.answers[question.id] = correct.id;
+  solution.answers[question.id] = options.find(option => option.correct).answer.id;
 
   test.questions.push(question);
 }
