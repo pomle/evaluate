@@ -10,7 +10,7 @@ export default {
 
   head() {
     return {
-      title: 'Just Evaluate'
+      title: 'Einride Evaluate'
     };
   }
 };
