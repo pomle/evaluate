@@ -11,8 +11,8 @@ export default {
 
 <template>
   <div class="progress">
-    <div 
-      :style="{width: `${value * 100}%`}" 
+    <div
+      :style="{width: `${value * 100}%`}"
       class="value"/>
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
 <style lang="less">
 .progress {
   .value {
-    background: #c85782;
+    background: #a84398;
     height: 3px;
   }
 }

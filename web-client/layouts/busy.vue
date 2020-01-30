@@ -1,5 +1,5 @@
 <script>
-import logo from '~/assets/img/justarrived-logo.png';
+import logo from '~/assets/img/einride-logo.svg';
 
 export default {
   data() {
