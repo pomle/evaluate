@@ -17,7 +17,7 @@ export default {
 
   head() {
     return {
-      title: 'Welcome - Just Evaluate'
+      title: 'Welcome - Einride Evaluate'
     };
   },
 
