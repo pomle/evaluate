@@ -1,5 +1,5 @@
 <script>
-import logo from '~/assets/img/justarrived-logo.png';
+import logo from '~/assets/img/einride-logo.svg';
 
 export default {
   data() {
@@ -13,8 +13,8 @@ export default {
 <template>
   <div class="default">
     <header>
-      <img 
-        :src="logo" 
+      <img
+        :src="logo"
         class="logo">
     </header>
 

@@ -1,5 +1,5 @@
 <script>
-import logo from '~/assets/img/justarrived-logo.png';
+import logo from '~/assets/img/einride-logo.svg';
 
 export default {
   props: {
@@ -43,8 +43,8 @@ export default {
 <template>
   <div class="test-start-page">
     <main>
-      <img 
-        :src="logo" 
+      <img
+        :src="logo"
         class="logo">
 
       <p>

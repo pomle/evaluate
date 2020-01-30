@@ -9,14 +9,14 @@ html {
 }
 
 body {
-  background: #181818;
+  background: #F8F8F8;
   margin: 0 1em;
 }
 
 body,
 input,
 textarea {
-  color: #fff;
+  color: #2A2A2A;
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: 1px;
@@ -27,17 +27,17 @@ button, input, textarea {
 }
 
 input, textarea {
-  background: #222222;
-  border: none;
+  background: #fff;
+  border: solid 1px #ccc;
   border-radius: 0.5em;
-  color: #fff;
+  color: #2A2A2A;
   font-size: 18px;
   padding: 0.8em;
 }
 
 button {
-  background: transparent;
-  border: solid 1px #c85782;
+  background: #5ADC9B;
+  border: none;
   border-radius: 0.2em;
   color: #fff;
   cursor: pointer;
@@ -47,18 +47,18 @@ button {
 }
 
 button.primary {
-  background: #c85782;
+  background: #5ADC9B;
 }
 
 button:active:hover {
-  background: #c85782;
+  background: inherit;
 }
 
 button.disabled {
-  background: #222;
   border-color: transparent;
-  color: #555;
+  color: #FFF;
   cursor: default;
+  opacity: 0.2;
   pointer-events: none;
 }
 
@@ -82,13 +82,13 @@ a {
 }
 
 p {
-  color: #aaa;
+  color: #2A2A2A;
   line-height: 1.5;
   margin: 1em 0;
 }
 
 b {
-  color: #fff;
+  color: inherit;
 }
 
 .layout-enter-active, .layout-leave-active {
