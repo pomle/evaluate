@@ -1,0 +1,106 @@
+html {
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  background: #F8F8F8;
+  margin: 0 1em;
+}
+
+body,
+input,
+textarea {
+  color: #2A2A2A;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+button, input, textarea {
+  outline: none;
+}
+
+input, textarea {
+  background: #fff;
+  border: solid 1px #ccc;
+  border-radius: 0.5em;
+  color: #2A2A2A;
+  font-size: 18px;
+  padding: 0.8em;
+}
+
+button {
+  background: #5ADC9B;
+  border: none;
+  border-radius: 0.2em;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 1em 2em;
+}
+
+button.primary {
+  background: #5ADC9B;
+}
+
+button:active:hover {
+  background: inherit;
+}
+
+button.disabled {
+  border-color: transparent;
+  color: #FFF;
+  cursor: default;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+table th {
+  text-align: left;
+}
+
+table th,
+table td {
+  padding: 1em 0.2em;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+a {
+  color: #c85782;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+p {
+  color: #2A2A2A;
+  line-height: 1.5;
+  margin: 1em 0;
+}
+
+b {
+  color: inherit;
+}
+
+.layout-enter-active, .layout-leave-active {
+  transition: opacity .5s
+}
+.layout-enter, .layout-leave-active {
+  opacity: 0
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
